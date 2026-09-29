@@ -1,0 +1,7 @@
+# (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
+# Documentation requirements for ReadTheDocs
+
+sphinx>=7.0
+sphinx-rtd-theme>=2.0
+myst-parser>=2.0

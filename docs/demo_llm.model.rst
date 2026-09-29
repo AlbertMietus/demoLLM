@@ -1,3 +1,5 @@
+.. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 demo_llm.model module
 ======================
 

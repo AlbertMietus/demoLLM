@@ -1,3 +1,5 @@
+# (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 # Minimal makefile for Sphinx documentation
 
 # You can set these variables from the command line, and also

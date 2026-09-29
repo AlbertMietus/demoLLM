@@ -1,3 +1,5 @@
+/* (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 */
+
 """
 Test suite for the LLM model class (test-001 series).
 

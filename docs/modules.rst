@@ -1,3 +1,5 @@
+.. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 API Documentation
 ==================
 

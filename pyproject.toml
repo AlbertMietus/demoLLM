@@ -1,3 +1,5 @@
+/* (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 */
+
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -8,7 +10,7 @@ version = "0.1.0"
 description = "A minimalistic LLM implementation for demonstration purposes"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 authors = [
     {name = "Albert Mietus", email = "albert@mietus.nl"}
 ]

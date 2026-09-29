@@ -1,3 +1,5 @@
+# (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information -----------------------------------------------------

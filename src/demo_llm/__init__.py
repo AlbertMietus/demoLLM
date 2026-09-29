@@ -1,3 +1,5 @@
+/* (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 */
+
 """
 DemoLLM: A minimalistic LLM implementation for demonstration purposes.
 
