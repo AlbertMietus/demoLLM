@@ -4,7 +4,7 @@ Project Documentation
 ====================
 
 This section contains project-related documentation including test results,
-progress tracking, and design notes.
+progress tracking, design notes, and working agreements.
 
 .. toctree::
    :maxdepth: 2
@@ -13,3 +13,4 @@ progress tracking, and design notes.
    tests/index
    progress/index
    design/index
+   working_agreements/index
