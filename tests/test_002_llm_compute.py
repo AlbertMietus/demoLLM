@@ -171,7 +171,6 @@ class TestLLMComputeUnknownTokens:
 class TestLLMComputeSentenceDetection:
     """Tests for sentence detection in LLMCompute."""
 
-    @pytest.mark.xfail(reason="LLMCompute class not fully implemented - TODO")
     def test_given_i_love_computers_when_feed_then_detects_sentence(self):
         """
         Given: LLMCompute with empty buffer
@@ -191,7 +190,6 @@ class TestLLMComputeSentenceDetection:
         
         assert compute.last_result == [I, LOVE, COMPUTERS]
 
-    @pytest.mark.xfail(reason="LLMCompute class not fully implemented - TODO")
     def test_given_you_love_computers_when_feed_then_detects_sentence(self):
         """
         Given: LLMCompute with empty buffer
@@ -211,7 +209,6 @@ class TestLLMComputeSentenceDetection:
         
         assert compute.last_result == [YOU, LOVE, COMPUTERS]
 
-    @pytest.mark.xfail(reason="LLMCompute class not fully implemented - TODO")
     def test_given_i_love_you_when_feed_then_detects_sentence(self):
         """
         Given: LLMCompute with empty buffer
@@ -231,7 +228,6 @@ class TestLLMComputeSentenceDetection:
         
         assert compute.last_result == [I, LOVE, YOU]
 
-    @pytest.mark.xfail(reason="LLMCompute class not fully implemented - TODO")
     def test_given_partial_sentence_when_feed_then_no_detection(self):
         """
         Given: LLMCompute with empty buffer
