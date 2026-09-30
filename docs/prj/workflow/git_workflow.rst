@@ -295,6 +295,29 @@ Step 7: Push and Create PR
     git push origin feature/[description]
     # Create Pull Request with description
 
+**For AI Agents with Explicit Merge Permission:**
+
+When the user explicitly states "Je mag hem direct mergen!" or similar phrases,
+the AI agent **should merge the PR directly** using the GitHub CLI.
+
+This is an exception to the normal workflow where PRs are created for review.
+The explicit permission overrides the need for manual review.
+
+.. code-block:: bash
+
+    # First, ensure the branch is up to date with main
+    git checkout feature/[description]
+    git pull origin main
+    git push origin feature/[description]
+
+    # Then merge the PR using gh CLI
+    gh pr merge --repo owner/repo --pr <number> --squash --delete-branch
+
+.. note::
+    The ``--squash`` flag combines all commits into one, and ``--delete-branch``
+    removes the feature branch after merging. Use these flags when explicitly
+    permitted by the user.
+
 **PR Description Format:**
 
 .. code-block:: markdown
