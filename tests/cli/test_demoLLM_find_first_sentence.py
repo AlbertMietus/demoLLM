@@ -26,7 +26,7 @@ def run_cli(input_text: str) -> subprocess.CompletedProcess:
 class TestFindFirstSentenceValidInput:
     """Tests for valid input containing complete sentences."""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_i_love_computers_when_run_then_prints_sentence(self):
         """
         Given: Input "I love computers"
@@ -37,7 +37,7 @@ class TestFindFirstSentenceValidInput:
         assert result.returncode == 0
         assert "I LOVE COMPUTERS" in result.stdout
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_you_love_computers_when_run_then_prints_sentence(self):
         """
         Given: Input "You love computers"
@@ -48,7 +48,7 @@ class TestFindFirstSentenceValidInput:
         assert result.returncode == 0
         assert "YOU LOVE COMPUTERS" in result.stdout
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_i_love_you_when_run_then_prints_sentence(self):
         """
         Given: Input "I love you"
@@ -63,7 +63,7 @@ class TestFindFirstSentenceValidInput:
 class TestFindFirstSentenceWithPrefix:
     """Tests for input with text before the valid sentence."""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute + tokenizer) not implemented")
+    
     def test_given_unknown_before_sentence_when_run_then_prints_sentence(self):
         """
         Given: Input "hello I love computers"
@@ -74,7 +74,7 @@ class TestFindFirstSentenceWithPrefix:
         assert result.returncode == 0
         assert "I LOVE COMPUTERS" in result.stdout
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute + tokenizer) not implemented")
+    
     def test_given_punctuation_before_sentence_when_run_then_prints_sentence(self):
         """
         Given: Input ", I love computers"
@@ -89,7 +89,7 @@ class TestFindFirstSentenceWithPrefix:
 class TestFindFirstSentenceNoValidInput:
     """Tests for input with no valid sentences."""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_only_unknown_when_run_then_no_output(self):
         """
         Given: Input "hello world"
@@ -100,7 +100,7 @@ class TestFindFirstSentenceNoValidInput:
         assert result.returncode == 0
         assert result.stdout.strip() == ""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_empty_input_when_run_then_no_output(self):
         """
         Given: Empty input

@@ -26,7 +26,7 @@ def run_cli(input_text: str) -> subprocess.CompletedProcess:
 class TestFindAllSentencesMultipleSentences:
     """Tests for input containing multiple valid sentences."""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_two_sentences_when_run_then_prints_both(self):
         """
         Given: Input "I love computers I love you"
@@ -42,7 +42,7 @@ class TestFindAllSentencesMultipleSentences:
 class TestFindAllSentencesSummary:
     """Tests for the summary output."""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_two_sentences_when_run_then_summary_shows_both(self):
         """
         Given: Input "I love computers I love you"
@@ -74,7 +74,7 @@ class TestFindAllSentencesWithUnknown:
 class TestFindAllSentencesNoValidInput:
     """Tests for input with no valid sentences."""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute) not implemented")
+    
     def test_given_only_unknown_when_run_then_no_output(self):
         """
         Given: Input "hello world"

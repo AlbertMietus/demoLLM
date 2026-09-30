@@ -26,7 +26,7 @@ def run_cli(input_text: str) -> subprocess.CompletedProcess:
 class TestValidateTokensBasic:
     """Basic validation tests."""
 
-    @pytest.mark.xfail(reason="rekenmodule (tokenizer) not implemented")
+    
     def test_given_valid_sentence_when_run_then_exit_0(self):
         """
         Given: Input "I love computers"
@@ -36,7 +36,7 @@ class TestValidateTokensBasic:
         result = run_cli("I love computers")
         assert result.returncode == 0
 
-    @pytest.mark.xfail(reason="rekenmodule (tokenizer) not implemented")
+    
     def test_given_unknown_word_when_run_then_exit_1(self):
         """
         Given: Input "hello"
@@ -50,7 +50,7 @@ class TestValidateTokensBasic:
 class TestValidateTokensPunctuation:
     """Tests for punctuation handling."""
 
-    @pytest.mark.xfail(reason="rekenmodule (tokenizer) not implemented - TODO: should "love," be 1 or 2 tokens?")
+    
     def test_given_word_with_punctuation_when_run_then_exit_1(self):
         """
         Given: Input "I love, computers"
@@ -65,7 +65,7 @@ class TestValidateTokensPunctuation:
         result = run_cli("I love, computers")
         assert result.returncode == 1
 
-    @pytest.mark.xfail(reason="rekenmodule (tokenizer) not implemented")
+    
     def test_given_punctuation_only_when_run_then_exit_1(self):
         """
         Given: Input ","
@@ -79,7 +79,7 @@ class TestValidateTokensPunctuation:
 class TestValidateTokensNoOutput:
     """Tests that CLI prints nothing."""
 
-    @pytest.mark.xfail(reason="rekenmodule not implemented")
+    
     def test_given_any_input_when_run_then_no_output(self):
         """
         Given: Any input
