@@ -1,25 +1,38 @@
 #!/usr/bin/env python3
+
 """
 CLI: Validate that all input tokens are valid.
 
-STUB: Implementation will follow BDD-TDD workflow.
-This script will read all input from stdin and validate that all tokens
-are in the base vocabulary (EOS, I, YOU, LOVE, COMPUTERS).
+This script reads all input from stdin, converts words to tokens,
+and validates that all tokens are in the base vocabulary (EOS, I, YOU,
+LOVE, COMPUTERS).
 
 Exit codes:
 - 0 (True): All tokens are valid
-- 1 (False): At least one token is invalid
+- 1 (False): At least one token is invalid (UNKNOWN or PUNCTUATION)
 """
 
 import sys
 
+from demo_llm.tokens import BASE_TOKENS
+from demo_llm.compute import tokenize_word
+
 
 def main():
     """Main entry point for the CLI."""
-    # TODO: Implement using tokenize_word function
-    # For now, just read input and exit with 0
+    valid_tokens = BASE_TOKENS
+    
+    # Read all input
     for line in sys.stdin:
-        pass
+        words = line.split()
+        for word in words:
+            token = tokenize_word(word)
+            
+            # Check if token is valid
+            if token not in valid_tokens:
+                sys.exit(1)
+    
+    # All tokens were valid
     sys.exit(0)
 
 

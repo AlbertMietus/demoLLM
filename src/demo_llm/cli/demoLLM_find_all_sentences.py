@@ -1,21 +1,56 @@
 #!/usr/bin/env python3
+
 """
 CLI: Find and print all valid sentences from input.
 
-STUB: Implementation will follow BDD-TDD workflow.
-This script will read input word by word from stdin, detect all valid
-sentences, print each one, and at the end print a summary.
+This script reads input word by word from stdin, converts words to tokens,
+and detects all valid sentences based on the LLM model. Each valid sentence
+is printed immediately when found. At the end, a summary of all detected
+sentences and their counts is printed.
 """
 
 import sys
+from collections import Counter
+
+from demo_llm.model import create_demo_llm
+from demo_llm.compute import LLMCompute
+from demo_llm.tokens import STOP, tokenize_word
 
 
 def main():
     """Main entry point for the CLI."""
-    # TODO: Implement using LLMCompute class
-    # For now, just read input and do nothing
+    llm = create_demo_llm()
+    compute = LLMCompute(llm)
+    
+    sentence_counter: Counter = Counter()
+    
+    # Read from stdin word by word
     for line in sys.stdin:
-        pass
+        words = line.split()
+        for word in words:
+            # Check for STOP word
+            token = tokenize_word(word)
+            if token == STOP:
+                break
+            
+            compute.feed_token(word)
+            
+            # Check if we have a result
+            result = compute.get_last_result_as_sentence()
+            if result is not None:
+                print(result)
+                sentence_counter[result] += 1
+        
+        # Check for STOP in the line
+        if any(tokenize_word(w.strip()) == STOP for w in line.split()):
+            break
+    
+    # Print summary
+    if sentence_counter:
+        print()
+        for sentence, count in sorted(sentence_counter.items()):
+            print(f"{sentence}: {count}")
+    
     sys.exit(0)
 
 
