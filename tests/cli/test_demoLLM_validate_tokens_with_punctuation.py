@@ -1,13 +1,14 @@
-"""
-BDD tests for demoLLM_validate_tokens_with_punctuation CLI (CLI3b).
+"""BDD tests for demoLLM_validate_tokens_with_punctuation CLI (CLI3b).
 
-These tests define the expected behavior of the validate_tokens_with_punctuation CLI.
-All tests are marked as xfail until the rekenmodule is implemented.
-"""
+   These tests define the expected behavior of the validate_tokens_with_punctuation CLI.
+   All tests are marked as xfail until the rekenmodule is implemented."""
+
+import pytest
 
 import subprocess
 import sys
 from pathlib import Path
+
 
 CLI_PATH = Path(__file__).parent.parent.parent / "src" / "demo_llm" / "cli" / "demoLLM_validate_tokens_with_punctuation.py"
 

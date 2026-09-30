@@ -1,7 +1,6 @@
-/* (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 */
+# (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 
 
-"""
-DemoLLM: A minimalistic LLM implementation for demonstration purposes.
+"""DemoLLM: A minimalistic LLM implementation for demonstration purposes.
 
 This package contains a simplified LLM model to demonstrate how modern
  generative AI systems work. The implementation is intentionally small

@@ -1,9 +1,7 @@
-"""
-BDD tests for demoLLM_find_all_sentences CLI.
+""" BDD tests for demoLLM_find_all_sentences CLI.
 
-These tests define the expected behavior of the find_all_sentences CLI.
-All tests are marked as xfail until the rekenmodule is implemented.
-"""
+    These tests define the expected behavior of the find_all_sentences CLI. All tests are marked as xfail until the
+    rekenmodule is implemented"""
 
 import subprocess
 import sys

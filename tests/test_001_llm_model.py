@@ -1,4 +1,4 @@
-/* (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 */
+# (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 """
 Test suite for the LLM model class (test-001 series).
@@ -12,7 +12,6 @@ All tests follow the naming convention: test_<series>_<description>
 """
 
 import pytest
-from typing import Dict, List
 
 
 class TestLLMModelStructure:
@@ -25,13 +24,13 @@ class TestLLMModelStructure:
         Then: The instance has both token_to_id and id_to_token attributes
         """
         from demo_llm.model import LLM
-        
+
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
         weights = [[0] * 5 for _ in range(5)]
-        
+
         llm = LLM(token_to_id=token_to_id, id_to_token=id_to_token, weights=weights)
-        
+
         assert hasattr(llm, 'token_to_id')
         assert hasattr(llm, 'id_to_token')
         assert hasattr(llm, 'weights')
@@ -43,13 +42,13 @@ class TestLLMModelStructure:
         Then: The mappings match the provided values
         """
         from demo_llm.model import LLM
-        
+
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
         weights = [[0] * 5 for _ in range(5)]
-        
+
         llm = LLM(token_to_id=token_to_id, id_to_token=id_to_token, weights=weights)
-        
+
         assert llm.token_to_id == token_to_id
         assert llm.id_to_token == id_to_token
 
@@ -60,7 +59,7 @@ class TestLLMModelStructure:
         Then: The weights match the provided matrix
         """
         from demo_llm.model import LLM
-        
+
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
         weights = [
@@ -70,9 +69,9 @@ class TestLLMModelStructure:
             [0, 0, 0, 0, 100],  # LOVE
             [0, 0, 0, 0, 0]     # COMPUTERS
         ]
-        
+
         llm = LLM(token_to_id=token_to_id, id_to_token=id_to_token, weights=weights)
-        
+
         assert llm.weights == weights
 
 
@@ -86,17 +85,17 @@ class TestLLMModelValidation:
         Then: Each token has a corresponding ID and vice versa
         """
         from demo_llm.model import LLM
-        
+
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
         weights = [[0] * 5 for _ in range(5)]
-        
+
         llm = LLM(token_to_id=token_to_id, id_to_token=id_to_token, weights=weights)
-        
+
         # Check all tokens have an ID
         for token, token_id in llm.token_to_id.items():
             assert llm.id_to_token[token_id] == token
-        
+
         # Check all IDs have a token
         for token_id, token in llm.id_to_token.items():
             assert llm.token_to_id[token] == token_id
@@ -108,13 +107,13 @@ class TestLLMModelValidation:
         Then: The matrix is square (n x n where n = number of tokens)
         """
         from demo_llm.model import LLM
-        
+
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
         weights = [[0] * 5 for _ in range(5)]
-        
+
         llm = LLM(token_to_id=token_to_id, id_to_token=id_to_token, weights=weights)
-        
+
         num_tokens = len(llm.token_to_id)
         assert len(llm.weights) == num_tokens
         for row in llm.weights:
@@ -127,7 +126,7 @@ class TestLLMModelValidation:
         Then: All values are integers between 0 and 100 (inclusive)
         """
         from demo_llm.model import LLM
-        
+
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
         weights = [
@@ -137,9 +136,9 @@ class TestLLMModelValidation:
             [0, 0, 0, 0, 100],
             [0, 0, 0, 0, 0]
         ]
-        
+
         llm = LLM(token_to_id=token_to_id, id_to_token=id_to_token, weights=weights)
-        
+
         for row in llm.weights:
             for value in row:
                 assert isinstance(value, int)
@@ -156,9 +155,9 @@ class TestDemoLLMFactory:
         Then: It returns an LLM instance
         """
         from demo_llm.model import create_demo_llm, LLM
-        
+
         llm = create_demo_llm()
-        
+
         assert isinstance(llm, LLM)
 
     def test_008_given_demo_llm_when_inspected_then_has_5_tokens(self):
@@ -168,9 +167,9 @@ class TestDemoLLMFactory:
         Then: It has exactly 5 tokens: I, YOU, LOVE, COMPUTERS, EOS
         """
         from demo_llm.model import create_demo_llm
-        
+
         llm = create_demo_llm()
-        
+
         expected_tokens = {"I", "YOU", "LOVE", "COMPUTERS", "EOS"}
         assert set(llm.token_to_id.keys()) == expected_tokens
         assert set(llm.id_to_token.values()) == expected_tokens
@@ -182,9 +181,9 @@ class TestDemoLLMFactory:
         Then: The tokens have IDs 0 (EOS), 1 (I), 2 (YOU), 3 (LOVE), 4 (COMPUTERS)
         """
         from demo_llm.model import create_demo_llm
-        
+
         llm = create_demo_llm()
-        
+
         assert llm.token_to_id["EOS"] == 0
         assert llm.token_to_id["I"] == 1
         assert llm.token_to_id["YOU"] == 2
@@ -198,9 +197,9 @@ class TestDemoLLMFactory:
         Then: The weights are a 5x5 matrix
         """
         from demo_llm.model import create_demo_llm
-        
+
         llm = create_demo_llm()
-        
+
         assert len(llm.weights) == 5
         for row in llm.weights:
             assert len(row) == 5
@@ -212,31 +211,31 @@ class TestDemoLLMFactory:
         Then: The weights allow for "I love computers", "You love computers", and "I love you"
         """
         from demo_llm.model import create_demo_llm
-        
+
         llm = create_demo_llm()
-        
+
         # Token IDs
         eos_id = llm.token_to_id["EOS"]
         i_id = llm.token_to_id["I"]
         you_id = llm.token_to_id["YOU"]
         love_id = llm.token_to_id["LOVE"]
         computers_id = llm.token_to_id["COMPUTERS"]
-        
+
         # Check I -> LOVE has high probability
         assert llm.weights[i_id][love_id] > 0
-        
+
         # Check YOU -> LOVE has high probability
         assert llm.weights[you_id][love_id] > 0
-        
+
         # Check LOVE -> COMPUTERS has high probability
         assert llm.weights[love_id][computers_id] > 0
-        
+
         # Check LOVE -> YOU has some probability (for "I love you")
         assert llm.weights[love_id][you_id] > 0
-        
+
         # Check COMPUTERS -> EOS has high probability (end of sentence)
         assert llm.weights[computers_id][eos_id] > 0
-        
+
         # Check YOU -> EOS has some probability (end of sentence)
         assert llm.weights[you_id][eos_id] > 0
 
@@ -247,9 +246,9 @@ class TestDemoLLMFactory:
         Then: Each row sums to <= 100 (probabilities don't exceed 100%)
         """
         from demo_llm.model import create_demo_llm
-        
+
         llm = create_demo_llm()
-        
+
         for row in llm.weights:
             row_sum = sum(row)
             assert row_sum <= 100, f"Row sum {row_sum} exceeds 100%"

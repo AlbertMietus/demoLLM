@@ -1,5 +1,3 @@
-/* (C) Albert Mietus */
+# (C) Albert Mietus
 
-"""
-BDD tests for CLI scripts.
-"""
+"""BDD tests for CLI scripts."""
