@@ -58,7 +58,7 @@ class TestFindAllSentencesSummary:
 class TestFindAllSentencesWithUnknown:
     """Tests for input with unknown words."""
 
-    @pytest.mark.xfail(reason="rekenmodule (LLMCompute + tokenizer) not implemented")
+    
     def test_given_unknown_before_sentence_when_run_then_prints_sentence(self):
         """
         Given: Input "hello I love computers"
