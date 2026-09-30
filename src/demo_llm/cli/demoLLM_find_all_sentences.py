@@ -13,17 +13,17 @@ import sys
 from collections import Counter
 
 from demo_llm.model import create_demo_llm
-from demo_llm.compute import LLMCompute
-from demo_llm.tokens import STOP, tokenize_word
+from demo_llm.compute import LLMCompute, tokenize_word
+from demo_llm.tokens import STOP
 
 
-def main():
+def main() -> None:
     """Main entry point for the CLI."""
     llm = create_demo_llm()
     compute = LLMCompute(llm)
-    
-    sentence_counter: Counter = Counter()
-    
+
+    sentence_counter: Counter[str] = Counter()
+
     # Read from stdin word by word
     for line in sys.stdin:
         words = line.split()
@@ -32,25 +32,25 @@ def main():
             token = tokenize_word(word)
             if token == STOP:
                 break
-            
+
             compute.feed_token(word)
-            
+
             # Check if we have a result
             result = compute.get_last_result_as_sentence()
             if result is not None:
                 print(result)
                 sentence_counter[result] += 1
-        
+
         # Check for STOP in the line
         if any(tokenize_word(w.strip()) == STOP for w in line.split()):
             break
-    
+
     # Print summary
     if sentence_counter:
         print()
         for sentence, count in sorted(sentence_counter.items()):
             print(f"{sentence}: {count}")
-    
+
     sys.exit(0)
 
 

@@ -11,26 +11,26 @@ Once a valid sentence is found, it is printed and the program exits.
 import sys
 
 from demo_llm.model import create_demo_llm
-from demo_llm.compute import LLMCompute
+from demo_llm.compute import LLMCompute, tokenize_word
 
 
-def main():
+def main() -> None:
     """Main entry point for the CLI."""
     llm = create_demo_llm()
     compute = LLMCompute(llm)
-    
+
     # Read from stdin word by word
     for line in sys.stdin:
         words = line.split()
         for word in words:
             compute.feed_token(word)
-            
+
             # Check if we have a result
             result = compute.get_last_result_as_sentence()
             if result is not None:
                 print(result)
                 sys.exit(0)
-    
+
     # No valid sentence found
     sys.exit(0)
 
