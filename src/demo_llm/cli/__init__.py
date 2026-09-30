@@ -1,10 +1,9 @@
-/* (C) Albert Mietus */
-
 """
 CLI scripts for DemoLLM.
 
-This package will contain command-line interface scripts that demonstrate
+This package contains command-line interface scripts that demonstrate
 the functionality of the DemoLLM compute module.
-
-Note: This is a stub. Implementation will follow BDD-TDD workflow.
 """
+
+from demo_llm.compute import tokenize_word
+from demo_llm.tokens import Token, EOS, I, YOU, LOVE, COMPUTERS, PSEUDO_UNKNOWN, PSEUDO_PUNCTUATION, STOP

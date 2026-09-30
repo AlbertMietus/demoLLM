@@ -1,5 +1,4 @@
-/* (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 */
-
+# (C) Albert Mietus -- mostly made by codeAI:mistral-medium-3-5
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"

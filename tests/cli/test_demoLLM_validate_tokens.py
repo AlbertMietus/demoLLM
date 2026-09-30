@@ -1,91 +1,163 @@
 """
 BDD tests for demoLLM_validate_tokens CLI.
 
-These tests define the expected behavior of the validate_tokens CLI.
-All tests are marked as xfail until the rekenmodule is implemented.
+These tests verify that the CLI correctly validates input tokens.
 """
 
 import subprocess
-import sys
-from pathlib import Path
-
-CLI_PATH = Path(__file__).parent.parent.parent / "src" / "demo_llm" / "cli" / "demoLLM_validate_tokens.py"
+from subprocess import CompletedProcess
 
 
-def run_cli(input_text: str) -> subprocess.CompletedProcess:
-    """Run the CLI script with the given input."""
-    return subprocess.run(
-        [sys.executable, str(CLI_PATH)],
-        input=input_text,
-        capture_output=True,
-        text=True,
-        timeout=5
-    )
+class TestDemoLLMValidateTokens:
+    """BDD tests for the validate_tokens CLI."""
 
-
-class TestValidateTokensBasic:
-    """Basic validation tests."""
-
-    
-    def test_given_valid_sentence_when_run_then_exit_0(self):
+    def test_given_all_valid_tokens_when_run_then_exits_zero(self) -> None:
         """
-        Given: Input "I love computers"
+        Given: Input with all valid tokens
         When: CLI is run
-        Then: Exit code is 0 (all tokens valid)
+        Then: Exit code is 0 (True)
         """
-        result = run_cli("I love computers")
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I YOU LOVE COMPUTERS",
+            text=True,
+            capture_output=True
+        )
+
         assert result.returncode == 0
 
-    
-    def test_given_unknown_word_when_run_then_exit_1(self):
+    def test_given_valid_sentence_when_run_then_exits_zero(self) -> None:
         """
-        Given: Input "hello"
+        Given: Input with a valid sentence
         When: CLI is run
-        Then: Exit code is 1 (contains UNKNOWN token)
+        Then: Exit code is 0 (True)
         """
-        result = run_cli("hello")
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I love computers",
+            text=True,
+            capture_output=True
+        )
+
+        assert result.returncode == 0
+
+    def test_given_unknown_word_when_run_then_exits_one(self) -> None:
+        """
+        Given: Input with an unknown word
+        When: CLI is run
+        Then: Exit code is 1 (False)
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I love hello",
+            text=True,
+            capture_output=True
+        )
+
         assert result.returncode == 1
 
-
-class TestValidateTokensPunctuation:
-    """Tests for punctuation handling."""
-
-    
-    def test_given_word_with_punctuation_when_run_then_exit_1(self):
+    def test_given_punctuation_when_run_then_exits_one(self) -> None:
         """
-        Given: Input "I love, computers"
+        Given: Input with punctuation
         When: CLI is run
-        Then: Exit code is 1 (contains PUNCTUATION or UNKNOWN token)
-        
-        TODO: Design decision needed - see bug_handling.rst
-        - Option A: "love," = 1 token (PSEUDO_UNKNOWN)
-        - Option B: "love," = 2 tokens (LOVE + PSEUDO_PUNCTUATION)
-        Current assumption: Option A (1 token, UNKNOWN)
+        Then: Exit code is 1 (False)
         """
-        result = run_cli("I love, computers")
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I love computers.",
+            text=True,
+            capture_output=True
+        )
+
         assert result.returncode == 1
 
-    
-    def test_given_punctuation_only_when_run_then_exit_1(self):
+    def test_given_word_with_punctuation_when_run_then_exits_one(self) -> None:
         """
-        Given: Input ","
+        Given: Input with word containing punctuation
         When: CLI is run
-        Then: Exit code is 1 (PUNCTUATION token invalid in this CLI)
+        Then: Exit code is 1 (False)
         """
-        result = run_cli(",")
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I love, computers",
+            text=True,
+            capture_output=True
+        )
+
         assert result.returncode == 1
 
+    def test_given_empty_input_when_run_then_exits_zero(self) -> None:
+        """
+        Given: Empty input
+        When: CLI is run
+        Then: Exit code is 0 (True - no invalid tokens)
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="",
+            text=True,
+            capture_output=True
+        )
 
-class TestValidateTokensNoOutput:
-    """Tests that CLI prints nothing."""
+        assert result.returncode == 0
 
-    
-    def test_given_any_input_when_run_then_no_output(self):
+    def test_given_mixed_valid_and_invalid_when_run_then_exits_one(self) -> None:
+        """
+        Given: Input with both valid and invalid tokens
+        When: CLI is run
+        Then: Exit code is 1 (False)
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I love hello computers",
+            text=True,
+            capture_output=True
+        )
+
+        assert result.returncode == 1
+
+    def test_given_only_valid_no_invalid_when_run_then_exits_zero(self) -> None:
+        """
+        Given: Input with only valid tokens and no invalid ones
+        When: CLI is run
+        Then: Exit code is 0 (True)
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I YOU LOVE COMPUTERS I",
+            text=True,
+            capture_output=True
+        )
+
+        assert result.returncode == 0
+
+    def test_given_case_insensitive_when_run_then_exits_zero(self) -> None:
+        """
+        Given: Input with valid tokens in different cases
+        When: CLI is run
+        Then: Exit code is 0 (True)
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="i you love computers",
+            text=True,
+            capture_output=True
+        )
+
+        assert result.returncode == 0
+
+    def test_given_no_output_when_run_then_prints_nothing(self) -> None:
         """
         Given: Any input
         When: CLI is run
-        Then: No output to stdout or stderr
+        Then: Nothing is printed to stdout or stderr
         """
-        result = run_cli("I love computers")
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            input="I love computers",
+            text=True,
+            capture_output=True
+        )
+
         assert result.stdout == ""
         assert result.stderr == ""

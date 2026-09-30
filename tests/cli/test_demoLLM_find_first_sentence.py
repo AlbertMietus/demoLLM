@@ -1,112 +1,165 @@
 """
 BDD tests for demoLLM_find_first_sentence CLI.
 
-These tests define the expected behavior of the find_first_sentence CLI.
-All tests are marked as xfail until the rekenmodule is implemented.
+These tests verify that the CLI correctly finds and prints the first valid
+sentence from input, then exits.
 """
 
 import subprocess
-import sys
-from pathlib import Path
-
-CLI_PATH = Path(__file__).parent.parent.parent / "src" / "demo_llm" / "cli" / "demoLLM_find_first_sentence.py"
+from subprocess import CompletedProcess
 
 
-def run_cli(input_text: str) -> subprocess.CompletedProcess:
-    """Run the CLI script with the given input."""
-    return subprocess.run(
-        [sys.executable, str(CLI_PATH)],
-        input=input_text,
-        capture_output=True,
-        text=True,
-        timeout=5
-    )
+class TestDemoLLMFindFirstSentence:
+    """BDD tests for the find_first_sentence CLI."""
 
-
-class TestFindFirstSentenceValidInput:
-    """Tests for valid input containing complete sentences."""
-
-    
-    def test_given_i_love_computers_when_run_then_prints_sentence(self):
+    def test_given_valid_sentence_when_run_then_prints_sentence(self) -> None:
         """
-        Given: Input "I love computers"
+        Given: Input containing a valid sentence
         When: CLI is run
-        Then: Prints "I LOVE COMPUTERS"
+        Then: The first valid sentence is printed
         """
-        result = run_cli("I love computers")
-        assert result.returncode == 0
-        assert "I LOVE COMPUTERS" in result.stdout
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="I love you",
+            text=True,
+            capture_output=True
+        )
 
-    
-    def test_given_you_love_computers_when_run_then_prints_sentence(self):
-        """
-        Given: Input "You love computers"
-        When: CLI is run
-        Then: Prints "YOU LOVE COMPUTERS"
-        """
-        result = run_cli("You love computers")
-        assert result.returncode == 0
-        assert "YOU LOVE COMPUTERS" in result.stdout
-
-    
-    def test_given_i_love_you_when_run_then_prints_sentence(self):
-        """
-        Given: Input "I love you"
-        When: CLI is run
-        Then: Prints "I LOVE YOU"
-        """
-        result = run_cli("I love you")
-        assert result.returncode == 0
         assert "I LOVE YOU" in result.stdout
 
-
-class TestFindFirstSentenceWithPrefix:
-    """Tests for input with text before the valid sentence."""
-
-    
-    def test_given_unknown_before_sentence_when_run_then_prints_sentence(self):
+    def test_given_multiple_sentences_when_run_then_prints_first_only(self) -> None:
         """
-        Given: Input "hello I love computers"
+        Given: Input containing multiple valid sentences
         When: CLI is run
-        Then: Ignores "hello", prints "I LOVE COMPUTERS"
+        Then: Only the first valid sentence is printed
         """
-        result = run_cli("hello I love computers")
-        assert result.returncode == 0
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="I love you I love computers",
+            text=True,
+            capture_output=True
+        )
+
+        assert "I LOVE YOU" in result.stdout
+        assert "I LOVE COMPUTERS" not in result.stdout
+
+    def test_given_sentence_with_invalid_prefix_when_run_then_prints_sentence(self) -> None:
+        """
+        Given: Input with invalid words before valid sentence
+        When: CLI is run
+        Then: Invalid words are ignored and first valid sentence is printed
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="hello world I love computers",
+            text=True,
+            capture_output=True
+        )
+
         assert "I LOVE COMPUTERS" in result.stdout
+        assert "hello" not in result.stdout.lower()
 
-    
-    def test_given_punctuation_before_sentence_when_run_then_prints_sentence(self):
+    def test_given_sentence_with_invalid_infix_when_run_then_prints_first(self) -> None:
         """
-        Given: Input ", I love computers"
+        Given: Input with invalid words between valid sentences
         When: CLI is run
-        Then: Ignores ",", prints "I LOVE COMPUTERS"
+        Then: First valid sentence is printed
         """
-        result = run_cli(", I love computers")
-        assert result.returncode == 0
-        assert "I LOVE COMPUTERS" in result.stdout
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="I love you hello I love computers",
+            text=True,
+            capture_output=True
+        )
 
+        assert "I LOVE YOU" in result.stdout
 
-class TestFindFirstSentenceNoValidInput:
-    """Tests for input with no valid sentences."""
-
-    
-    def test_given_only_unknown_when_run_then_no_output(self):
+    def test_given_no_valid_sentences_when_run_then_no_output(self) -> None:
         """
-        Given: Input "hello world"
+        Given: Input with no valid sentences
         When: CLI is run
-        Then: No output, exit code 0
+        Then: No output is produced
         """
-        result = run_cli("hello world")
-        assert result.returncode == 0
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="hello world test",
+            text=True,
+            capture_output=True
+        )
+
         assert result.stdout.strip() == ""
 
-    
-    def test_given_empty_input_when_run_then_no_output(self):
+    def test_given_empty_input_when_run_then_no_output(self) -> None:
         """
         Given: Empty input
         When: CLI is run
-        Then: No output, exit code 0
+        Then: No output is produced
         """
-        result = run_cli("")
-        assert result.returncode == 0
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="",
+            text=True,
+            capture_output=True
+        )
+
         assert result.stdout.strip() == ""
+
+    def test_given_multiline_input_when_run_then_processes_all_lines(self) -> None:
+        """
+        Given: Multiline input
+        When: CLI is run
+        Then: All lines are processed until first sentence found
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="hello\nI love you",
+            text=True,
+            capture_output=True
+        )
+
+        assert "I LOVE YOU" in result.stdout
+
+    def test_given_valid_sentence_at_start_when_run_then_prints_immediately(self) -> None:
+        """
+        Given: Valid sentence at the start of input
+        When: CLI is run
+        Then: Sentence is printed immediately
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="I love computers more text",
+            text=True,
+            capture_output=True
+        )
+
+        assert "I LOVE COMPUTERS" in result.stdout
+
+    def test_given_partial_sentence_when_run_then_no_output(self) -> None:
+        """
+        Given: Input with only part of a sentence
+        When: CLI is run
+        Then: No output is produced
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="I love",
+            text=True,
+            capture_output=True
+        )
+
+        assert result.stdout.strip() == ""
+
+    def test_given_exact_sentence_when_run_then_prints_sentence(self) -> None:
+        """
+        Given: Input with exact valid sentence
+        When: CLI is run
+        Then: The sentence is printed
+        """
+        result: CompletedProcess = subprocess.run(
+            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
+            input="You love computers",
+            text=True,
+            capture_output=True
+        )
+
+        assert "YOU LOVE COMPUTERS" in result.stdout

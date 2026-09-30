@@ -1,4 +1,3 @@
-
 """
 Token definitions for DemoLLM.
 
@@ -45,10 +44,8 @@ The token IDs are carefully chosen to allow for easy extension:
 - 8+: Available for future expansion
 """
 
-from typing import TypeAlias
-
 # Token type: all tokens are integers
-Token: TypeAlias = int
+Token = int
 
 # Core tokens (the 4 basis words + EOS)
 EOS: Token = 0
