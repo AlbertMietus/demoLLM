@@ -156,19 +156,18 @@ class TestTokenizerWordsWithPunctuation:
     See: docs/AIblog/love_comma_example.rst
     """
 
-    @pytest.mark.xfail(reason="TODO: Design decision - 1 or 2 tokens? Assuming Option A for now")
     def test_given_word_with_trailing_comma_when_tokenize_then_returns_unknown(self):
         """
         Given: Word "love,"
         When: tokenize_word is called
         Then: Returns PSEUDO_UNKNOWN token (5)
         
-        DESIGN DECISION:
-        - Option A (current): "love," = 1 token (PSEUDO_UNKNOWN)
-        - Option B (alternative): "love," = 2 tokens (LOVE + PSEUDO_PUNCTUATION)
+        DESIGN DECISION (Option A):
+        - "love," = 1 token (PSEUDO_UNKNOWN)
+        - Alternative (Option B): "love," = 2 tokens (LOVE + PSEUDO_PUNCTUATION)
         
-        XXX/TODO: Must discuss with Albert which option to use.
-        For now, implementing Option A.
+        TODO: Confirm with Albert which option to use.
+        Current implementation: Option A.
         """
         from demo_llm.tokens import PSEUDO_UNKNOWN
         from demo_llm.compute import tokenize_word
@@ -177,7 +176,6 @@ class TestTokenizerWordsWithPunctuation:
         
         assert result == PSEUDO_UNKNOWN
 
-    @pytest.mark.xfail(reason="TODO: Design decision - depends on above")
     def test_given_word_with_leading_comma_when_tokenize_then_returns_unknown(self):
         """
         Given: Word ",love"
