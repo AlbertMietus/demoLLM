@@ -24,17 +24,36 @@ def tokenize_word(word: str) -> Token:
     """
     Convert a word to its corresponding token ID.
     
-    STUB: Implementation will follow TDD workflow.
+    Implementation follows Option A: words with punctuation are PSEUDO_UNKNOWN.
     
-    TODO: Design decision needed for words with punctuation.
-    See: tests/test_003_tokenizer.py
-    
-    Current assumption (Option A):
-    - Words with punctuation -> PSEUDO_UNKNOWN
+    TODO: Confirm design decision with Albert.
+    Current implementation:
     - Pure punctuation -> PSEUDO_PUNCTUATION
+    - Words with punctuation -> PSEUDO_UNKNOWN
     - Known words -> Token ID
     - Unknown words -> PSEUDO_UNKNOWN
+    
+    See: tests/test_003_tokenizer.py for design decision documentation.
     """
-    # TODO: Implement properly
-    # For now, return PSEUDO_UNKNOWN for everything
+    # If word is empty or all whitespace
+    if not word or all(c.isspace() for c in word):
+        return PSEUDO_PUNCTUATION
+    
+    # Check if word contains any punctuation
+    PUNCTUATION_CHARS = ".,;:!?()[]{}'\""
+    if any(c in PUNCTUATION_CHARS for c in word):
+        # If entire word IS punctuation
+        if all(c in PUNCTUATION_CHARS or c.isspace() for c in word):
+            return PSEUDO_PUNCTUATION
+        # Word with punctuation -> invalid
+        return PSEUDO_UNKNOWN
+    
+    # Convert to uppercase for case-insensitive matching
+    upper_word = word.upper()
+    
+    # Check if it's a known word
+    if upper_word in WORD_TO_TOKEN:
+        return WORD_TO_TOKEN[upper_word]
+    
+    # Unknown word
     return PSEUDO_UNKNOWN
