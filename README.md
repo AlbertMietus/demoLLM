@@ -1,10 +1,15 @@
-<!-- (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 -->
+(C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 -->
 
 # DemoLLM
 
 A minimalistic LLM implementation for demonstration purposes.
 
-## Overview
+DemoLLM is both an experiment to make technical software with
+(almost only) genAI, and a demo, to show the component & interfaces 
+of a modern LLM, and relevant related parts
+(like a clasic Ai)
+
+#Overview
 
 DemoLLM is a very small, demo-only Language Model written in pure Python. It is designed to be readable and demonstrate how generative AI works. All code is written with TDD (using pytest) and follows modern software engineering principles like SOLID.
 
