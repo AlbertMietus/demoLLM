@@ -1,3 +1,5 @@
 VENV
 __pycache__/
 _ToCS-reports/
+docs/__result/
+docs/_build/
