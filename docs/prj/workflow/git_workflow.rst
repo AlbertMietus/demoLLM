@@ -32,7 +32,7 @@ This means:
 - The git history should **tell the story** of how the feature was developed
 
 References
-=========
+===========
 
 This workflow is based on the BDD & TDD principles from:
 
@@ -57,7 +57,7 @@ The development process follows this **commit sequence**:
 Let's break this down:
 
 Step 1: Create Feature Branch
-----------------------------
+-----------------------------
 
 **When:** Starting a new feature or component
 
@@ -163,7 +163,7 @@ Step 3: Add TDD Tests
     - All tests fail: tokenizer not implemented"
 
 Step 4: Implement Component
---------------------------
+---------------------------
 
 **When:** Making TDD tests pass
 
@@ -243,7 +243,7 @@ Step 5: Integrate Components
     - BDD tests still marked as xfail"
 
 Step 6: Remove xfail Markers
----------------------------
+----------------------------
 
 **When:** All tests pass
 
@@ -348,7 +348,7 @@ The explicit permission overrides the need for manual review.
 - Enables **collaboration**
 
 Branch Naming Convention
-=======================
+========================
 
 Use **descriptive, consistent** branch names:
 
@@ -391,7 +391,7 @@ Commit Message Guidelines
    - Include issue/PR numbers if applicable
 
 Example Commit Messages
-----------------------
+========================
 
 .. code-block:: text
 
@@ -452,7 +452,7 @@ A good git history for a feature should read like a **narrative**:
 This tells the **complete story** of how the feature was developed using BDD-TDD.
 
 Working with AI
-==============
+===============
 
 When using AI with this Git workflow:
 

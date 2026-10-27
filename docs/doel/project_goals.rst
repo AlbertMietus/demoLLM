@@ -25,16 +25,16 @@ Core Objectives
    - Implement the **smallest possible** working LLM
    - Use only **4 base tokens** (I, YOU, LOVE, COMPUTERS) + EOS
    - Support only **3 valid English sentences**:
-     - "I love computers"
-     - "You love computers"
-     - "I love you"
+   - "I love computers"
+   - "You love computers"
+   - "I love you"
 
 2. **Architectural Completeness**
    - Include **all major LLM components** in minimal form:
-     - Tokenizer (word-level, tokens = words)
-     - Model weights (hardcoded transition matrix)
-     - Inference loop (generation)
-     - Caching mechanisms (future)
+   - Tokenizer (word-level, tokens = words)
+   - Model weights (hardcoded transition matrix)
+   - Inference loop (generation)
+   - Caching mechanisms (future)
    - Components must be **separable** and **inspectable**
 
 3. **Engineering Excellence**
@@ -51,9 +51,9 @@ Core Objectives
 
 5. **Extensibility**
    - Design must allow for **future expansion**:
-     - More tokens
-     - More complex models
-     - Additional features (caching, attention, etc.)
+   - More tokens
+   - More complex models
+   - Additional features (caching, attention, etc.)
    - **No hardcoding** of demo-specific logic in core classes
 
 6. **Dual-Licensing**
@@ -74,7 +74,7 @@ The following are **explicitly NOT goals** of this project:
 - Supporting non-English languages (for now)
 
 Success Criteria
----------------
+----------------
 
 The project is considered successful when:
 

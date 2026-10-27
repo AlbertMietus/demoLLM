@@ -35,7 +35,7 @@ steps in a development process, and they **change the order** of traditional dev
     The tests define the requirements; the code satisfies them.
 
 References
-=========
+===========
 
 This workflow is based on the following authoritative sources:
 
@@ -105,7 +105,7 @@ Phase 1: BDD - Define Behavior
 .. _tdd-phase:
 
 Phase 2: TDD - Implement Components
--------------------------------
+===================================
 
 **Purpose:** Define **how** the system achieves the behavior, one component at a time.
 
@@ -147,7 +147,7 @@ Phase 2: TDD - Implement Components
 .. _integration-phase:
 
 Phase 3: Integration - Connect Components
-----------------------------------------
+-----------------------------------------
 
 **Purpose:** Connect the TDD-implemented components to satisfy the BDD tests.
 
@@ -262,7 +262,7 @@ Common Pitfalls
    - **Solution:** Write tests from the user's perspective
 
 For AI Assistance
-================
+=================
 
 When working with AI coding assistants:
 
@@ -284,7 +284,7 @@ When working with AI coding assistants:
    - Ask: "What edge cases are missing from these tests?"
 
 Example AI Prompt
-----------------
+=================
 
 .. code-block:: text
 

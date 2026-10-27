@@ -7,6 +7,6 @@ This section contains test results and coverage information for the DemoLLM proj
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   test_*
+   test_001_llm_model
+   ../progress/progress_2026_09_29

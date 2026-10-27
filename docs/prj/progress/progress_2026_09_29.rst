@@ -7,7 +7,7 @@ Progress Report: 2026-09-29
 **Status**: Phase 1 Complete ✅
 
 Completed Tasks
---------------
+---------------
 
 1. **Project Setup**
    - Created repository structure (demoLLM/, pytst/, docs/)
@@ -19,9 +19,9 @@ Completed Tasks
    - Added create_demo_llm() factory function
    - Supports 5 tokens: EOS, I, YOU, LOVE, COMPUTERS
    - Configured weights for valid sentences:
-     - "I love computers"
-     - "You love computers"
-     - "I love you"
+       - "I love computers"
+       - "You love computers"
+       - "I love you"
 
 3. **Testing**
    - Implemented 12 TDD tests with pseudo-BDD naming
@@ -40,7 +40,7 @@ Completed Tasks
    - Added progress tracking
 
 Files Changed
-------------
+-------------
 
 - ``.readthedocs.yaml`` - ReadTheDocs configuration
 - ``docs/requirements.txt`` - Documentation dependencies

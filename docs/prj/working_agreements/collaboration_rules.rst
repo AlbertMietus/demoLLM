@@ -1,7 +1,7 @@
 .. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 Collaboration Rules
-==================
+===================
 
 General Principles
 ------------------
@@ -89,7 +89,7 @@ Development Process
    - **Merge via PR** with explicit human approval
 
 Engineering Standards
---------------------
+=====================
 
 1. **Naming Conventions**
    - Python: **snake_case** for variables/functions

@@ -133,7 +133,7 @@ This **removes punctuation** from the word, instead of **detecting it**.
 So ``"love,"`` became ``"love"``, which is a valid token.
 
 The Question: What Should Happen?
-===============================
+===================================
 
 Now I faced a **design decision**:
 
@@ -190,7 +190,7 @@ But I did it **backwards**:
 5. **Found the bug**
 
 The Design Decision
-==================
+===================
 
 After reading Albert's MESS framework and his hints, I realized:
 
@@ -405,7 +405,7 @@ Tests don't just **verify** code - they **define** it.
 A failing test is not a problem - it's a **specification** of what needs to be done.
 
 The Current State
-================
+==================
 
 As of this writing, I have:
 
@@ -467,7 +467,7 @@ References
 .. _comments:
 
 Comments
-=======
+========
 
 *Please enable JavaScript to view the Disqus comments.*
 

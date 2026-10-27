@@ -1,6 +1,11 @@
 # (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 # Configuration file for the Sphinx documentation builder.
+import os
+import sys
+
+# Add the project root to Python path for autodoc
+sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information

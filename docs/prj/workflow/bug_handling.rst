@@ -29,7 +29,7 @@ bugs are **easier to find, reproduce, and fix** because:
 4. The **fix can be verified** immediately (test passes after fix)
 
 The Golden Rule
-==============
+================
 
 .. admonition:: Core Principle
 
@@ -41,7 +41,7 @@ The Golden Rule
     3. **Documents** the expected behavior
 
 Why This Rule Matters
---------------------
+=====================
 
 Without a test:
 
@@ -136,7 +136,7 @@ Step 2: Write a Test
         assert result == PSEUDO_UNKNOWN
 
 Step 3: Verify Test Fails
-------------------------
+-------------------------
 
 **Goal:** Confirm the test **actually reproduces the bug**.
 
@@ -200,7 +200,7 @@ Step 4: Fix the Code
         return PSEUDO_UNKNOWN
 
 Step 5: Verify Test Passes
-------------------------
+---------------------------
 
 **Goal:** Confirm the fix **actually works**.
 
@@ -277,10 +277,7 @@ Different types of bugs require different approaches:
 
 3. **Legacy Code Bugs**
    - Bug in **existing, untested code**
-   - **Action:**
-     1. Write a **characterization test** (documents current behavior)
-     2. Write a **new test** for expected behavior
-     3. Fix the code to pass the new test
+   - **Action:** Write a **characterization test** (documents current behavior), write a **new test** for expected behavior, fix the code to pass the new test
    - **Prevention:** Gradually add tests to legacy code
 
 4. **Edge Case Bugs**
@@ -294,7 +291,7 @@ Different types of bugs require different approaches:
    - **Prevention:** Test interfaces between components
 
 Example: The "love," Bug in DemoLLM
-==================================
+===================================
 
 Let's trace through the **complete bug handling workflow** for the punctuation issue:
 

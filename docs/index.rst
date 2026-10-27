@@ -1,7 +1,7 @@
 .. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 DemoLLM Documentation
-====================
+=======================
 
 A minimalistic LLM implementation for demonstration purposes.
 
@@ -19,6 +19,7 @@ and uses hardcoded weights for a handful of tokens.
    doel/index
    prj/index
    adr/index
+   AIblog/love_comma_example
    modules
 
 

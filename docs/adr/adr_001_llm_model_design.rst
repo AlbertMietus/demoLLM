@@ -68,7 +68,7 @@ Rationale
 - Makes the structure more similar to real LLM implementations
 
 Consequences
------------
+------------
 
 **Positive:**
 - The model is extremely simple and easy to understand
@@ -100,6 +100,6 @@ Alternatives Considered
    Prediction logic can be added in a separate class later.
 
 Related Decisions
-----------------
+================
 - ADR 002: Tokenization Strategy (to be created)
 - ADR 003: Inference Engine Design (to be created)

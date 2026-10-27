@@ -1,7 +1,7 @@
 .. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 Project Documentation
-====================
+=====================
 
 This section contains project-related documentation including test results,
 progress tracking, design notes, and working agreements.
@@ -13,4 +13,5 @@ progress tracking, design notes, and working agreements.
    tests/index
    progress/index
    design/index
+   workflow/index
    working_agreements/index

@@ -1,7 +1,7 @@
 .. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 demoLLM package
-==================
+===================
 
 .. automodule:: demoLLM
    :members:
@@ -14,4 +14,4 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
-   demoLLM.model
+   demo_llm.model

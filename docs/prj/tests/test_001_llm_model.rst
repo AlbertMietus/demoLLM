@@ -12,7 +12,7 @@ All tests for the LLM model are implemented using TDD (Test-Driven Development)
 principles with pseudo-BDD (Given/When/Then) naming conventions.
 
 Test Suite: test_001_llm_model.py
--------------------------------
+===================================
 
 **Status**: All 12 tests passing ✅
 
