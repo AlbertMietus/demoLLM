@@ -5,7 +5,7 @@ These tests verify that the CLI correctly finds and prints the first valid
 sentence from input, then exits.
 """
 
-from test.cli.base import BaseCLITest
+from pytst.cli.base import BaseCLITest
 
 
 class TestDemoLLMFindFirstSentence(BaseCLITest):

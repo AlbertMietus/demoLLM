@@ -5,7 +5,7 @@ These tests verify that the CLI correctly validates input tokens
 with PSEUDO_PUNCTUATION allowed.
 """
 
-from test.cli.base import BaseCLITest
+from pytst.cli.base import BaseCLITest
 
 
 class TestDemoLLMValidateTokensWithPunctuation(BaseCLITest):

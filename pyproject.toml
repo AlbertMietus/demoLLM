@@ -27,7 +27,7 @@ dev = [
 where = ["."]
 
 [tool.pytest.ini_options]
-testpaths = ["test"]
+testpaths = ["pytst"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]

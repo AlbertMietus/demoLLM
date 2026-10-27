@@ -4,7 +4,7 @@ BDD tests for demoLLM_validate_tokens CLI.
 These tests verify that the CLI correctly validates input tokens.
 """
 
-from test.cli.base import BaseCLITest
+from pytst.cli.base import BaseCLITest
 
 
 class TestDemoLLMValidateTokens(BaseCLITest):

@@ -5,7 +5,7 @@ These tests verify that the CLI correctly finds and prints all valid sentences
 from input, and prints a summary at the end.
 """
 
-from test.cli.base import BaseCLITest
+from pytst.cli.base import BaseCLITest
 
 
 class TestDemoLLMFindAllSentences(BaseCLITest):
