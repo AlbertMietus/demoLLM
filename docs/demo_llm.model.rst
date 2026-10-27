@@ -1,9 +1,9 @@
 .. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
-demo_llm.model module
+demoLLM.model module
 ======================
 
-.. automodule:: demo_llm.model
+.. automodule:: demoLLM.model
    :members:
    :undoc-members:
    :show-inheritance:

@@ -41,20 +41,20 @@ Test Execution
 
 .. code-block:: bash
 
-    $ pytest tests/test_001_llm_model.py -v
+    $ pytest pytst/test_001_llm_model.py -v
     ============================= test session starts ==============================
-    tests/test_001_llm_model.py::TestLLMModelStructure::test_001_given_llm_class_when_instantiated_then_has_token_mappings PASSED
-    tests/test_001_llm_model.py::TestLLMModelStructure::test_002_given_llm_instance_when_inspected_then_token_mappings_are_correct PASSED
-    tests/test_001_llm_model.py::TestLLMModelStructure::test_003_given_llm_instance_when_inspected_then_weights_are_correct PASSED
-    tests/test_001_llm_model.py::TestLLMModelValidation::test_004_given_token_mappings_when_checked_then_are_bidirectional PASSED
-    tests/test_001_llm_model.py::TestLLMModelValidation::test_005_given_weights_when_checked_then_matrix_is_square PASSED
-    tests/test_001_llm_model.py::TestLLMModelValidation::test_006_given_weights_when_checked_then_values_are_percentages PASSED
-    tests/test_001_llm_model.py::TestDemoLLMFactory::test_007_given_demo_llm_factory_when_called_then_returns_llm_instance PASSED
-    tests/test_001_llm_model.py::TestDemoLLMFactory::test_008_given_demo_llm_when_inspected_then_has_5_tokens PASSED
-    tests/test_001_llm_model.py::TestDemoLLMFactory::test_009_given_demo_llm_when_inspected_then_has_correct_token_ids PASSED
-    tests/test_001_llm_model.py::TestDemoLLMFactory::test_010_given_demo_llm_when_inspected_then_weights_are_5x5 PASSED
-    tests/test_001_llm_model.py::TestDemoLLMFactory::test_011_given_demo_llm_when_inspected_then_valid_sentences_possible PASSED
-    tests/test_001_llm_model.py::TestDemoLLMFactory::test_012_given_demo_llm_when_inspected_then_row_sums_are_reasonable PASSED
+    pytst/test_001_llm_model.py::TestLLMModelStructure::test_001_given_llm_class_when_instantiated_then_has_token_mappings PASSED
+    pytst/test_001_llm_model.py::TestLLMModelStructure::test_002_given_llm_instance_when_inspected_then_token_mappings_are_correct PASSED
+    pytst/test_001_llm_model.py::TestLLMModelStructure::test_003_given_llm_instance_when_inspected_then_weights_are_correct PASSED
+    pytst/test_001_llm_model.py::TestLLMModelValidation::test_004_given_token_mappings_when_checked_then_are_bidirectional PASSED
+    pytst/test_001_llm_model.py::TestLLMModelValidation::test_005_given_weights_when_checked_then_matrix_is_square PASSED
+    pytst/test_001_llm_model.py::TestLLMModelValidation::test_006_given_weights_when_checked_then_values_are_percentages PASSED
+    pytst/test_001_llm_model.py::TestDemoLLMFactory::test_007_given_demo_llm_factory_when_called_then_returns_llm_instance PASSED
+    pytst/test_001_llm_model.py::TestDemoLLMFactory::test_008_given_demo_llm_when_inspected_then_has_5_tokens PASSED
+    pytst/test_001_llm_model.py::TestDemoLLMFactory::test_009_given_demo_llm_when_inspected_then_has_correct_token_ids PASSED
+    pytst/test_001_llm_model.py::TestDemoLLMFactory::test_010_given_demo_llm_when_inspected_then_weights_are_5x5 PASSED
+    pytst/test_001_llm_model.py::TestDemoLLMFactory::test_011_given_demo_llm_when_inspected_then_valid_sentences_possible PASSED
+    pytst/test_001_llm_model.py::TestDemoLLMFactory::test_012_given_demo_llm_when_inspected_then_row_sums_are_reasonable PASSED
     ============================== 12 passed in 0.02s ==============================
 
 Coverage

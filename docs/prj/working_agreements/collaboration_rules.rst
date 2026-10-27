@@ -161,7 +161,7 @@ Project-Specific Agreements
    - **No other sentences** required (for now)
 
 4. **File Structure**
-   - Source code: **src/demo_llm/**
+   - Source code: **demoLLM/**
    - Tests: **tests/**
    - Documentation: **docs/**
    - Project docs: **docs/prj/**

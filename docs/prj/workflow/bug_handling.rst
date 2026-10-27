@@ -90,7 +90,7 @@ Step 1: Reproduce the Bug
     Bug Report: "demoLLM_validate_tokens.py accepts punctuation"
     
     Reproduction:
-    1. Run: echo "I love, computers" | python -m demo_llm.cli.demoLLM_validate_tokens
+    1. Run: echo "I love, computers" | python -m demoLLM.cli.demoLLM_validate_tokens
     2. Expected: exit code 1 (invalid)
     3. Actual: exit code 0 (valid)
     
@@ -127,8 +127,8 @@ Step 2: Write a Test
         
         This test reproduces the bug where punctuation is stripped instead of detected.
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_UNKNOWN
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_UNKNOWN
         
         result = tokenize_word("love,")
         
@@ -308,7 +308,7 @@ Let's trace through the **complete bug handling workflow** for the punctuation i
 
 .. code-block:: bash
 
-    echo "I love, computers" | python -m demo_llm.cli.demoLLM_validate_tokens
+    echo "I love, computers" | python -m demoLLM.cli.demoLLM_validate_tokens
     echo $?  # Returns 0, should be 1
 
 **Step 2: Write Test**
@@ -322,8 +322,8 @@ Let's trace through the **complete bug handling workflow** for the punctuation i
         BUG: tokenize_word("love,") returns LOVE (3)
         EXPECTED: PSEUDO_UNKNOWN (5) because word contains punctuation
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_UNKNOWN
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_UNKNOWN
         
         result = tokenize_word("love,")
         assert result == PSEUDO_UNKNOWN
@@ -339,7 +339,7 @@ Let's trace through the **complete bug handling workflow** for the punctuation i
 
 .. code-block:: python
 
-    # In src/demo_llm/compute.py
+    # In demoLLM/compute.py
     
     def tokenize_word(word: str) -> Token:
         # Check if word contains punctuation
@@ -408,7 +408,7 @@ Bug fixes should follow the **same Git workflow** as features:
     git commit -m "Add test for love, tokenization bug (failing)"
     
     # Fix the bug
-    git add src/demo_llm/compute.py
+    git add demoLLM/compute.py
     git commit -m "Fix tokenize_word to detect punctuation in words"
     
     git push origin bugfix/love-comma-tokenization
@@ -429,8 +429,8 @@ Sometimes you find a bug but **can't fix it immediately**. In this case:
 
     @pytest.mark.xfail(reason="Bug #123: tokenizer strips punctuation instead of detecting")
     def test_tokenize_word_with_punctuation_returns_unknown():
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_UNKNOWN
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_UNKNOWN
         
         assert tokenize_word("love,") == PSEUDO_UNKNOWN
 

@@ -95,7 +95,7 @@ Phase 1: BDD - Define Behavior
         Then: Exit code is 1 (invalid)
         """
         result = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
+            ["python", "-m", "demoLLM.cli.demoLLM_validate_tokens"],
             input="I love, computers",
             capture_output=True,
             text=True
@@ -137,8 +137,8 @@ Phase 2: TDD - Implement Components
         When: tokenize_word is called
         Then: Returns PSEUDO_UNKNOWN (word with punctuation is invalid)
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_UNKNOWN
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_UNKNOWN
         
         result = tokenize_word("love,")
         

@@ -228,7 +228,7 @@ Let me show you how this **should** have gone:
     git checkout -b feature/llm-reken-module
     
     # Create CLI stubs
-    touch src/demo_llm/cli/demoLLM_*.py
+    touch demoLLM/cli/demoLLM_*.py
     
     # Create BDD tests
     # tests/cli/test_demoLLM_validate_tokens.py
@@ -237,7 +237,7 @@ Let me show you how this **should** have gone:
         result = run_cli("I love, computers")
         assert result.returncode == 1
     
-    git add src/demo_llm/cli/ tests/cli/
+    git add demoLLM/cli/ tests/cli/
     git commit -m "Add BDD tests for LLM CLIs (xfail - tokenizer missing)"
 
 **Commit 2: TDD Tests for Tokenizer**
@@ -282,7 +282,7 @@ After discussion with the team/product owner, we decide: **Option A** (1 token, 
 
 .. code-block:: python
 
-    # src/demo_llm/compute.py
+    # demoLLM/compute.py
     def tokenize_word(word: str) -> Token:
         # If word contains punctuation, it's invalid
         if any(c in ".,;:!?()[]{}'\"" for c in word):
@@ -294,7 +294,7 @@ After discussion with the team/product owner, we decide: **Option A** (1 token, 
         upper_word = word.upper()
         return WORD_TO_TOKEN.get(upper_word, PSEUDO_UNKNOWN)
     
-    git add src/demo_llm/compute.py
+    git add demoLLM/compute.py
     git commit -m "Implement tokenize_word to detect punctuation in words"
 
 **Commit 5: Remove xfail from BDD Tests**

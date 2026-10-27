@@ -85,12 +85,12 @@ Step 2: Add BDD Tests (xfail)
 .. code-block:: bash
 
     # Create CLI stubs
-    touch src/demo_llm/cli/demoLLM_*.py
+    touch demoLLM/cli/demoLLM_*.py
     
     # Create BDD tests with xfail markers
     # tests/cli/test_demoLLM_*.py
     
-    git add src/demo_llm/cli/ tests/cli/
+    git add demoLLM/cli/ tests/cli/
     git commit -m "Add BDD tests for LLM CLIs (xfail - rekenmodule missing)"
 
 **Commit Message Format:**
@@ -172,9 +172,9 @@ Step 4: Implement Component
 .. code-block:: bash
 
     # Implement the component to pass tests
-    # src/demo_llm/[module].py
+    # demoLLM/[module].py
     
-    git add src/demo_llm/[module].py
+    git add demoLLM/[module].py
     git commit -m "Implement [component] to pass TDD tests"
 
 **Commit Message Format:**
@@ -214,7 +214,7 @@ Step 5: Integrate Components
     # Update CLIs to use the new components
     # Update __init__.py files for exports
     
-    git add src/demo_llm/cli/*.py src/demo_llm/__init__.py
+    git add demoLLM/cli/*.py demoLLM/__init__.py
     git commit -m "Integrate [component] into CLIs"
 
 **Commit Message Format:**
@@ -328,9 +328,9 @@ The explicit permission overrides the need for manual review.
     - All tests passing (26 TDD + 58 BDD)
 
     ## Changes
-    - Added `src/demo_llm/tokens.py` - Token definitions
-    - Added `src/demo_llm/compute.py` - Compute module with LLMCompute class
-    - Added `src/demo_llm/cli/` - CLI scripts
+    - Added `demoLLM/tokens.py` - Token definitions
+    - Added `demoLLM/compute.py` - Compute module with LLMCompute class
+    - Added `demoLLM/cli/` - CLI scripts
     - Added `tests/test_002_llm_compute.py` - TDD tests
     - Added `tests/test_003_tokenizer.py` - TDD tests
     - Added `tests/cli/` - BDD tests

@@ -10,7 +10,7 @@ Completed Tasks
 --------------
 
 1. **Project Setup**
-   - Created repository structure (src/, tests/, docs/)
+   - Created repository structure (demoLLM/, pytst/, docs/)
    - Added pyproject.toml with dependencies
    - Configured Sphinx documentation
 
@@ -51,14 +51,14 @@ Files Changed
 - ``docs/adr/index.rst`` - ADR index
 - ``docs/adr/adr_001_llm_model_design.rst`` - Model design ADR
 - ``docs/prj/index.rst`` - Project documentation index
-- ``docs/prj/tests/index.rst`` - Test documentation index
-- ``docs/prj/tests/test_001_llm_model.rst`` - LLM model test results
+- ``docs/prj/pytst/index.rst`` - Test documentation index
+- ``docs/prj/pytst/test_001_llm_model.rst`` - LLM model test results
 - ``docs/prj/progress/index.rst`` - Progress tracking index
 - ``docs/prj/progress/progress_2026_09_29.rst`` - This file
-- ``src/demo_llm/__init__.py`` - Package init
-- ``src/demo_llm/model.py`` - LLM model implementation
-- ``tests/__init__.py`` - Tests package init
-- ``tests/test_001_llm_model.py`` - LLM model tests
+- ``demoLLM/__init__.py`` - Package init
+- ``demoLLM/model.py`` - LLM model implementation
+- ``pytst/__init__.py`` - Tests package init
+- ``pytst/test_001_llm_model.py`` - LLM model tests
 - ``pyproject.toml`` - Project configuration
 - ``README.md`` - Project readme
 - ``LICENSE`` - Apache 2.0 license
