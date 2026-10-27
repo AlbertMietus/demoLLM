@@ -1,27 +1,26 @@
 #!/usr/bin/env python3
 
 """
-CLI: Validate tokens with punctuation allowed (CLI3b).
+CLI: Validate that all input tokens are valid.
 
 This script reads all input from stdin, converts words to tokens,
-and validates that all tokens are either in the base vocabulary or
-PSEUDO_PUNCTUATION.
+and validates that all tokens are in the base vocabulary (EOS, I, YOU,
+LOVE, COMPUTERS).
 
 Exit codes:
-- 0 (True): All tokens are valid (base tokens or PUNCTUATION)
-- 1 (False): At least one token is UNKNOWN
+- 0 (True): All tokens are valid
+- 1 (False): At least one token is invalid (UNKNOWN or PUNCTUATION)
 """
 
 import sys
 
-from demo_llm.tokens import BASE_TOKENS, PSEUDO_PUNCTUATION
-from demo_llm.compute import tokenize_word
+from demoLLM.tokens import BASE_TOKENS
+from demoLLM.compute import tokenize_word
 
 
 def main() -> None:
     """Main entry point for the CLI."""
-    # Valid tokens include base tokens plus PSEUDO_PUNCTUATION
-    valid_tokens = BASE_TOKENS | {PSEUDO_PUNCTUATION}
+    valid_tokens = BASE_TOKENS
 
     # Read all input
     for line in sys.stdin:

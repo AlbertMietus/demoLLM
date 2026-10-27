@@ -12,9 +12,9 @@ sentences and their counts is printed.
 import sys
 from collections import Counter
 
-from demo_llm.model import create_demo_llm
-from demo_llm.compute import LLMCompute, tokenize_word
-from demo_llm.tokens import STOP
+from demoLLM.model import create_demo_llm
+from demoLLM.compute import LLMCompute, tokenize_word
+from demoLLM.tokens import STOP
 
 
 def main() -> None:

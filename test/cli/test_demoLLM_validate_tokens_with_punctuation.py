@@ -5,11 +5,10 @@ These tests verify that the CLI correctly validates input tokens
 with PSEUDO_PUNCTUATION allowed.
 """
 
-import subprocess
-from subprocess import CompletedProcess
+from test.cli.base import BaseCLITest
 
 
-class TestDemoLLMValidateTokensWithPunctuation:
+class TestDemoLLMValidateTokensWithPunctuation(BaseCLITest):
     """BDD tests for the validate_tokens_with_punctuation CLI."""
 
     def test_given_all_valid_tokens_when_run_then_exits_zero(self) -> None:
@@ -18,12 +17,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input="I YOU LOVE COMPUTERS",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", "I YOU LOVE COMPUTERS")
 
         assert result.returncode == 0
 
@@ -33,12 +27,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Exit code is 0 (True - punctuation is valid in CLI3b)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input="I love computers .",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", "I love computers .")
 
         assert result.returncode == 0
 
@@ -48,12 +37,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Exit code is 1 (False - words with punctuation are UNKNOWN)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input="I love, computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", "I love, computers")
 
         assert result.returncode == 1
 
@@ -63,12 +47,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Exit code is 1 (False)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input="I love hello",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", "I love hello")
 
         assert result.returncode == 1
 
@@ -78,12 +57,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input="",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", "")
 
         assert result.returncode == 0
 
@@ -93,12 +67,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input=" . , ! ?",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", " . , ! ?")
 
         assert result.returncode == 0
 
@@ -108,12 +77,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input="I love computers . I love you !",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", "I love computers . I love you !")
 
         assert result.returncode == 0
 
@@ -123,12 +87,7 @@ class TestDemoLLMValidateTokensWithPunctuation:
         When: CLI is run
         Then: Nothing is printed to stdout or stderr
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens_with_punctuation"],
-            input="I love computers .",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens_with_punctuation", "I love computers .")
 
         assert result.stdout == ""
         assert result.stderr == ""

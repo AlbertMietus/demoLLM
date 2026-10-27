@@ -4,11 +4,10 @@ BDD tests for demoLLM_validate_tokens CLI.
 These tests verify that the CLI correctly validates input tokens.
 """
 
-import subprocess
-from subprocess import CompletedProcess
+from test.cli.base import BaseCLITest
 
 
-class TestDemoLLMValidateTokens:
+class TestDemoLLMValidateTokens(BaseCLITest):
     """BDD tests for the validate_tokens CLI."""
 
     def test_given_all_valid_tokens_when_run_then_exits_zero(self) -> None:
@@ -17,12 +16,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I YOU LOVE COMPUTERS",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I YOU LOVE COMPUTERS")
 
         assert result.returncode == 0
 
@@ -32,12 +26,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I love computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I love computers")
 
         assert result.returncode == 0
 
@@ -47,12 +36,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 1 (False)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I love hello",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I love hello")
 
         assert result.returncode == 1
 
@@ -62,12 +46,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 1 (False)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I love computers.",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I love computers.")
 
         assert result.returncode == 1
 
@@ -77,12 +56,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 1 (False)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I love, computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I love, computers")
 
         assert result.returncode == 1
 
@@ -92,12 +66,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 0 (True - no invalid tokens)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "")
 
         assert result.returncode == 0
 
@@ -107,12 +76,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 1 (False)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I love hello computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I love hello computers")
 
         assert result.returncode == 1
 
@@ -122,12 +86,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I YOU LOVE COMPUTERS I",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I YOU LOVE COMPUTERS I")
 
         assert result.returncode == 0
 
@@ -137,12 +96,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Exit code is 0 (True)
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="i you love computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "i you love computers")
 
         assert result.returncode == 0
 
@@ -152,12 +106,7 @@ class TestDemoLLMValidateTokens:
         When: CLI is run
         Then: Nothing is printed to stdout or stderr
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_validate_tokens"],
-            input="I love computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_validate_tokens", "I love computers")
 
         assert result.stdout == ""
         assert result.stderr == ""

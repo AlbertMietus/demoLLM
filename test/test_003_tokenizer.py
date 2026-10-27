@@ -18,8 +18,8 @@ class TestTokenizerKnownWords:
         When: tokenize_word is called
         Then: Returns the I token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import I
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import I
 
         result = tokenize_word("I")
         assert result == I
@@ -30,8 +30,8 @@ class TestTokenizerKnownWords:
         When: tokenize_word is called
         Then: Returns the YOU token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import YOU
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import YOU
 
         result = tokenize_word("YOU")
         assert result == YOU
@@ -42,8 +42,8 @@ class TestTokenizerKnownWords:
         When: tokenize_word is called
         Then: Returns the LOVE token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import LOVE
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import LOVE
 
         result = tokenize_word("LOVE")
         assert result == LOVE
@@ -54,8 +54,8 @@ class TestTokenizerKnownWords:
         When: tokenize_word is called
         Then: Returns the COMPUTERS token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import COMPUTERS
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import COMPUTERS
 
         result = tokenize_word("COMPUTERS")
         assert result == COMPUTERS
@@ -66,8 +66,8 @@ class TestTokenizerKnownWords:
         When: tokenize_word is called
         Then: Returns the correct token (case-insensitive)
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import I, YOU, LOVE, COMPUTERS
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import I, YOU, LOVE, COMPUTERS
 
         assert tokenize_word("i") == I
         assert tokenize_word("you") == YOU
@@ -84,8 +84,8 @@ class TestTokenizerUnknownWords:
         When: tokenize_word is called
         Then: Returns PSEUDO_UNKNOWN token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_UNKNOWN
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_UNKNOWN
 
         result = tokenize_word("UNKNOWN")
         assert result == PSEUDO_UNKNOWN
@@ -96,8 +96,8 @@ class TestTokenizerUnknownWords:
         When: tokenize_word is called
         Then: Returns PSEUDO_PUNCTUATION token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_PUNCTUATION
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_PUNCTUATION
 
         result = tokenize_word("")
         assert result == PSEUDO_PUNCTUATION
@@ -108,8 +108,8 @@ class TestTokenizerUnknownWords:
         When: tokenize_word is called
         Then: Returns PSEUDO_PUNCTUATION token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_PUNCTUATION
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_PUNCTUATION
 
         result = tokenize_word("   ")
         assert result == PSEUDO_PUNCTUATION
@@ -124,8 +124,8 @@ class TestTokenizerPunctuation:
         When: tokenize_word is called
         Then: Returns PSEUDO_PUNCTUATION token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_PUNCTUATION
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_PUNCTUATION
 
         assert tokenize_word(".") == PSEUDO_PUNCTUATION
         assert tokenize_word(",") == PSEUDO_PUNCTUATION
@@ -142,8 +142,8 @@ class TestTokenizerPunctuation:
 
         This is the design decision: "love," -> PSEUDO_UNKNOWN (single token)
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_UNKNOWN
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_UNKNOWN
 
         # Words with trailing punctuation
         assert tokenize_word("love,") == PSEUDO_UNKNOWN
@@ -162,8 +162,8 @@ class TestTokenizerPunctuation:
         When: tokenize_word is called
         Then: Returns PSEUDO_UNKNOWN token
         """
-        from demo_llm.compute import tokenize_word
-        from demo_llm.tokens import PSEUDO_UNKNOWN
+        from demoLLM.compute import tokenize_word
+        from demoLLM.tokens import PSEUDO_UNKNOWN
 
         assert tokenize_word("hello,world") == PSEUDO_UNKNOWN
         assert tokenize_word("test...") == PSEUDO_UNKNOWN

@@ -11,8 +11,8 @@ LLMCompute
     It can feed tokens one by one (stream-like) and detect valid sentences.
 """
 
-from demo_llm.model import LLM
-from demo_llm.tokens import (
+from demoLLM.model import LLM
+from demoLLM.tokens import (
     Token,
     EOS,
     PSEUDO_UNKNOWN,

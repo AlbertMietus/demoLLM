@@ -16,8 +16,8 @@ class TestLLMComputeInitialization:
         When: LLMCompute is created with that LLM
         Then: The compute instance has the LLM
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -30,8 +30,8 @@ class TestLLMComputeInitialization:
         When: LLMCompute is created with that LLM
         Then: The compute instance has an empty buffer
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -44,8 +44,8 @@ class TestLLMComputeInitialization:
         When: LLMCompute is created with that LLM
         Then: The compute instance has no last result
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -62,9 +62,9 @@ class TestLLMComputeFeedToken:
         When: A valid token is fed
         Then: The token is added to the buffer
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -79,9 +79,9 @@ class TestLLMComputeFeedToken:
         When: An UNKNOWN token is fed
         Then: The buffer is reset
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, PSEUDO_UNKNOWN
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, PSEUDO_UNKNOWN
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -99,9 +99,9 @@ class TestLLMComputeFeedToken:
         When: A PUNCTUATION token is fed
         Then: The buffer is reset
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, PSEUDO_PUNCTUATION
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, PSEUDO_PUNCTUATION
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -119,9 +119,9 @@ class TestLLMComputeFeedToken:
         When: A STOP token is fed
         Then: The buffer is reset
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, STOP
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, STOP
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -143,9 +143,9 @@ class TestLLMComputeSentenceDetection:
         When: Fed to LLMCompute
         Then: A sentence is detected (I LOVE YOU)
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, LOVE, YOU
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, LOVE, YOU
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -164,9 +164,9 @@ class TestLLMComputeSentenceDetection:
         When: Fed to LLMCompute
         Then: A sentence is detected (I LOVE COMPUTERS)
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, LOVE, COMPUTERS
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, LOVE, COMPUTERS
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -185,9 +185,9 @@ class TestLLMComputeSentenceDetection:
         When: Fed to LLMCompute
         Then: No sentence is detected (need at least 2 tokens)
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -203,9 +203,9 @@ class TestLLMComputeSentenceDetection:
         When: Fed to LLMCompute
         Then: No sentence is detected
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, COMPUTERS
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, COMPUTERS
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -226,9 +226,9 @@ class TestLLMComputeGetResult:
         When: get_last_result is called
         Then: The sentence tokens are returned
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, LOVE, YOU
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, LOVE, YOU
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -248,9 +248,9 @@ class TestLLMComputeGetResult:
         When: get_last_result_as_sentence is called
         Then: The sentence as a string is returned
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, LOVE, YOU
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, LOVE, YOU
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -270,8 +270,8 @@ class TestLLMComputeGetResult:
         When: get_last_result is called
         Then: None is returned
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -285,8 +285,8 @@ class TestLLMComputeGetResult:
         When: get_last_result_as_sentence is called
         Then: None is returned
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -304,9 +304,9 @@ class TestLLMComputeReset:
         When: reset is called
         Then: The buffer is empty
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, LOVE
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, LOVE
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)
@@ -325,9 +325,9 @@ class TestLLMComputeReset:
         When: reset is called
         Then: The last result is None
         """
-        from demo_llm.model import create_demo_llm
-        from demo_llm.compute import LLMCompute
-        from demo_llm.tokens import I, LOVE, YOU
+        from demoLLM.model import create_demo_llm
+        from demoLLM.compute import LLMCompute
+        from demoLLM.tokens import I, LOVE, YOU
 
         llm = create_demo_llm()
         compute = LLMCompute(llm)

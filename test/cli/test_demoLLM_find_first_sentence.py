@@ -5,11 +5,10 @@ These tests verify that the CLI correctly finds and prints the first valid
 sentence from input, then exits.
 """
 
-import subprocess
-from subprocess import CompletedProcess
+from test.cli.base import BaseCLITest
 
 
-class TestDemoLLMFindFirstSentence:
+class TestDemoLLMFindFirstSentence(BaseCLITest):
     """BDD tests for the find_first_sentence CLI."""
 
     def test_given_valid_sentence_when_run_then_prints_sentence(self) -> None:
@@ -18,12 +17,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: The first valid sentence is printed
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="I love you",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "I love you")
 
         assert "I LOVE YOU" in result.stdout
 
@@ -33,12 +27,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: Only the first valid sentence is printed
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="I love you I love computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "I love you I love computers")
 
         assert "I LOVE YOU" in result.stdout
         assert "I LOVE COMPUTERS" not in result.stdout
@@ -49,12 +38,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: Invalid words are ignored and first valid sentence is printed
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="hello world I love computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "hello world I love computers")
 
         assert "I LOVE COMPUTERS" in result.stdout
         assert "hello" not in result.stdout.lower()
@@ -65,12 +49,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: First valid sentence is printed
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="I love you hello I love computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "I love you hello I love computers")
 
         assert "I LOVE YOU" in result.stdout
 
@@ -80,12 +59,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: No output is produced
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="hello world test",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "hello world test")
 
         assert result.stdout.strip() == ""
 
@@ -95,12 +69,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: No output is produced
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "")
 
         assert result.stdout.strip() == ""
 
@@ -110,12 +79,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: All lines are processed until first sentence found
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="hello\nI love you",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "hello\nI love you")
 
         assert "I LOVE YOU" in result.stdout
 
@@ -125,12 +89,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: Sentence is printed immediately
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="I love computers more text",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "I love computers more text")
 
         assert "I LOVE COMPUTERS" in result.stdout
 
@@ -140,12 +99,7 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: No output is produced
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="I love",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "I love")
 
         assert result.stdout.strip() == ""
 
@@ -155,11 +109,6 @@ class TestDemoLLMFindFirstSentence:
         When: CLI is run
         Then: The sentence is printed
         """
-        result: CompletedProcess = subprocess.run(
-            ["python", "-m", "demo_llm.cli.demoLLM_find_first_sentence"],
-            input="You love computers",
-            text=True,
-            capture_output=True
-        )
+        result = self.run_cli("demoLLM.cli.demoLLM_find_first_sentence", "You love computers")
 
         assert "YOU LOVE COMPUTERS" in result.stdout

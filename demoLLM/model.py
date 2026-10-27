@@ -56,7 +56,7 @@ class LLM:
 
     Examples
     --------
-    >>> from demo_llm.model import create_demo_llm
+    >>> from demoLLM.model import create_demo_llm
     >>> llm = create_demo_llm()
     >>> llm.token_to_id["I"]
     1
@@ -103,7 +103,7 @@ def create_demo_llm() -> LLM:
 
     Examples
     --------
-    >>> from demo_llm.model import create_demo_llm
+    >>> from demoLLM.model import create_demo_llm
     >>> llm = create_demo_llm()
     >>> len(llm.token_to_id)
     5

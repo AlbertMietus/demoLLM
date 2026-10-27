@@ -10,8 +10,8 @@ Once a valid sentence is found, it is printed and the program exits.
 
 import sys
 
-from demo_llm.model import create_demo_llm
-from demo_llm.compute import LLMCompute, tokenize_word
+from demoLLM.model import create_demo_llm
+from demoLLM.compute import LLMCompute, tokenize_word
 
 
 def main() -> None:

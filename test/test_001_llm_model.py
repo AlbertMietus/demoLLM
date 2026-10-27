@@ -21,7 +21,7 @@ class TestLLMModelStructure:
         When: An instance is created with token_to_id and id_to_token
         Then: The instance has both token_to_id and id_to_token attributes
         """
-        from demo_llm.model import LLM
+        from demoLLM.model import LLM
 
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
@@ -39,7 +39,7 @@ class TestLLMModelStructure:
         When: The mappings are inspected
         Then: The mappings match the provided values
         """
-        from demo_llm.model import LLM
+        from demoLLM.model import LLM
 
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
@@ -56,7 +56,7 @@ class TestLLMModelStructure:
         When: The weights are inspected
         Then: The weights match the provided matrix
         """
-        from demo_llm.model import LLM
+        from demoLLM.model import LLM
 
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
@@ -82,7 +82,7 @@ class TestLLMModelValidation:
         When: The mappings are validated
         Then: Each token has a corresponding ID and vice versa
         """
-        from demo_llm.model import LLM
+        from demoLLM.model import LLM
 
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
@@ -104,7 +104,7 @@ class TestLLMModelValidation:
         When: The matrix dimensions are checked
         Then: The matrix is square (n x n where n = number of tokens)
         """
-        from demo_llm.model import LLM
+        from demoLLM.model import LLM
 
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
@@ -123,7 +123,7 @@ class TestLLMModelValidation:
         When: The weight values are checked
         Then: All values are integers between 0 and 100 (inclusive)
         """
-        from demo_llm.model import LLM
+        from demoLLM.model import LLM
 
         token_to_id = {"I": 1, "YOU": 2, "LOVE": 3, "COMPUTERS": 4, "EOS": 0}
         id_to_token = {0: "EOS", 1: "I", 2: "YOU", 3: "LOVE", 4: "COMPUTERS"}
@@ -152,7 +152,7 @@ class TestDemoLLMFactory:
         When: It is called
         Then: It returns an LLM instance
         """
-        from demo_llm.model import create_demo_llm, LLM
+        from demoLLM.model import create_demo_llm, LLM
 
         llm = create_demo_llm()
 
@@ -164,7 +164,7 @@ class TestDemoLLMFactory:
         When: The tokens are inspected
         Then: It has exactly 5 tokens: I, YOU, LOVE, COMPUTERS, EOS
         """
-        from demo_llm.model import create_demo_llm
+        from demoLLM.model import create_demo_llm
 
         llm = create_demo_llm()
 
@@ -178,7 +178,7 @@ class TestDemoLLMFactory:
         When: The token IDs are inspected
         Then: The tokens have IDs 0 (EOS), 1 (I), 2 (YOU), 3 (LOVE), 4 (COMPUTERS)
         """
-        from demo_llm.model import create_demo_llm
+        from demoLLM.model import create_demo_llm
 
         llm = create_demo_llm()
 
@@ -194,7 +194,7 @@ class TestDemoLLMFactory:
         When: The weights matrix is inspected
         Then: The weights are a 5x5 matrix
         """
-        from demo_llm.model import create_demo_llm
+        from demoLLM.model import create_demo_llm
 
         llm = create_demo_llm()
 
@@ -208,7 +208,7 @@ class TestDemoLLMFactory:
         When: The weights are inspected for valid sentences
         Then: The weights allow for "I love computers", "You love computers", and "I love you"
         """
-        from demo_llm.model import create_demo_llm
+        from demoLLM.model import create_demo_llm
 
         llm = create_demo_llm()
 
@@ -243,7 +243,7 @@ class TestDemoLLMFactory:
         When: The weights matrix row sums are checked
         Then: Each row sums to <= 100 (probabilities don't exceed 100%)
         """
-        from demo_llm.model import create_demo_llm
+        from demoLLM.model import create_demo_llm
 
         llm = create_demo_llm()
 
