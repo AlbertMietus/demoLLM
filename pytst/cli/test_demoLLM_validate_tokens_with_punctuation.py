@@ -1,3 +1,5 @@
+# (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 """
 BDD tests for demoLLM_validate_tokens_with_punctuation CLI (CLI3b).
 

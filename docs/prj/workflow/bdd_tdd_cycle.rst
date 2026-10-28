@@ -1,3 +1,4 @@
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 .. _bdd_tdd_cycle:
 
 ===================================

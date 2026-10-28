@@ -1,3 +1,5 @@
+# (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 """
 CLI scripts for DemoLLM.
 
