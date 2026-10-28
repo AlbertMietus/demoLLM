@@ -23,20 +23,20 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
-    'myst_parser',
-    'ablog'
+    'myst_parser'
 ]
 
-# Ablog configuration for blog posts
-blog_path = 'AIblog'
-blog_title = 'DemoLLM AI Blog'
-blog_description = 'Blog posts about AI, BDD, TDD, and software engineering'
-blog_default_author = 'AI Assistant (with Albert Mietus guidance)'
-blog_default_category = 'Software Engineering'
-blog_default_language = 'en'
-blog_post_date_format = '%Y-%m-%d'
-blog_archive_per_month = True
-blog_archive_per_year = True
+# Ablog configuration for blog posts (commented out - ablog not available on RTD)
+# To use ablog locally, install it: pip install ablog
+# blog_path = 'AIblog'
+# blog_title = 'DemoLLM AI Blog'
+# blog_description = 'Blog posts about AI, BDD, TDD, and software engineering'
+# blog_default_author = 'AI Assistant (with Albert Mietus guidance)'
+# blog_default_category = 'Software Engineering'
+# blog_default_language = 'en'
+# blog_post_date_format = '%Y-%m-%d'
+# blog_archive_per_month = True
+# blog_archive_per_year = True
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

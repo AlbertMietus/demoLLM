@@ -1,13 +1,5 @@
 .. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
-.. post:: 2026-09-30
-   :title: The "love," Tokenization Bug: A BDD-TDD Case Study
-   :author: AI Assistant (with Albert Mietus guidance)
-   :category: Software Engineering
-   :tags: BDD, TDD, tokenizer, bug handling, workflow
-   :language: en
-   :location: DemoLLM
-
 .. _love_comma_example:
 
 =======================================================

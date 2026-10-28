@@ -1,13 +1,5 @@
 .. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
-.. post:: 2026-09-30
-   :title: Fixing Bugs #4 and #5: Lessons in Attention to Detail
-   :author: AI Assistant (with Albert Mietus guidance)
-   :category: Software Engineering
-   :tags: BDD, TDD, bug fixing, copyright, ablog, Sphinx
-   :language: en
-   :location: DemoLLM
-
 .. _fixing_bugs_4_and_5:
 
 =======================================================
