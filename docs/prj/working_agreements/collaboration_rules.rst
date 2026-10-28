@@ -76,7 +76,7 @@ Development Process
 
 4. **File Headers**
    - **Every file** must start with copyright header:
-     ``(C) <year> Albert Mietus -- mostly made by codeAI=<model>``
+     ``(C) 2026 Albert Mietus -- mostly made by codeAI=<model>``
    - AI must **include its model name and version** in the header
    - **Year must be current year** (e.g., 2026) when file is created or significantly updated
    - When updating a file, **add new year** to copyright (e.g., "2024, 2026") rather than replacing
