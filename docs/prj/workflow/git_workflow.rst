@@ -499,4 +499,4 @@ See Also
 
 - :ref:`bdd_tdd_cycle` - The BDD & TDD development process
 - :ref:`bug_handling` - How to handle bugs in this workflow
-- :doc:`/AIblog/love_comma_example` - A concrete example
+- :doc:`2026-09-30_love_comma_example` - A concrete example

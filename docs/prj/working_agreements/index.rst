@@ -13,6 +13,7 @@ must be followed by all parties to ensure efficient and effective collaboration.
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   *
+   collaboration_rules
+
+.. _collaboration_rules:

@@ -548,4 +548,4 @@ See Also
 
 - :ref:`bdd_tdd_cycle` - The BDD & TDD development process
 - :ref:`git_workflow` - How to integrate with Git
-- :doc:`/AIblog/love_comma_example` - A concrete example of bug handling
+- :doc:`2026-09-30_love_comma_example` - A concrete example of bug handling
