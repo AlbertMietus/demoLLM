@@ -39,7 +39,7 @@ The Errors I Made
    - Albert had to point out missing files multiple times
 
 Why These Errors Happened
-========================
+=========================
 
 Root Cause Analysis:
 
@@ -69,7 +69,7 @@ Root Cause Analysis:
    - "It looks fine" is not the same as "It is fine"
 
 How to Convince You (Albert) This Will NEVER Happen Again
-========================================================
+==========================================================
 
 **Action 1: Automated Verification**
 
@@ -229,7 +229,7 @@ I will add a pre-commit hook to prevent these errors:
     echo "✓ All checks passed"
 
 What I Will Do Differently
-=========================
+==========================
 
 **Before:**
 - Rushed to implement
