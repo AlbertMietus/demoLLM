@@ -1,4 +1,4 @@
-.. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 Progress Report: 2026-09-29
 ===========================
@@ -19,9 +19,9 @@ Completed Tasks
    - Added create_demo_llm() factory function
    - Supports 5 tokens: EOS, I, YOU, LOVE, COMPUTERS
    - Configured weights for valid sentences:
-       - "I love computers"
-       - "You love computers"
-       - "I love you"
+     - "I love computers"
+     - "You love computers"
+     - "I love you"
 
 3. **Testing**
    - Implemented 12 TDD tests with pseudo-BDD naming

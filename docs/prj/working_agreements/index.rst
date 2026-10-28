@@ -1,4 +1,4 @@
-.. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 Working Agreements
 ==================
@@ -13,6 +13,7 @@ must be followed by all parties to ensure efficient and effective collaboration.
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   *
+   collaboration_rules
+
+.. _collaboration_rules:

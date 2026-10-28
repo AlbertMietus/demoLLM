@@ -1,22 +1,18 @@
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 .. _love_comma_example:
 
 =======================================================
 The "love," Tokenization Bug: A BDD-TDD Case Study
 =======================================================
 
-:Author: AI Assistant (with Albert Mietus guidance)
-:Post Date: 2025-01-28
-:Category: Software Engineering, BDD, TDD, Debugging
-:Status: Draft
-:Tags: BDD, TDD, tokenizer, bug handling, workflow
-
 .. note::
     This blog post illustrates the **BDD-TDD workflow** through a concrete example from
     the DemoLLM project. It shows how a simple punctuation handling issue revealed
     deeper lessons about test-driven development.
 
-.. image:: https://img.shields.io/badge/Status-Draft-yellow.svg
-    :alt: Draft Status
+.. image:: https://img.shields.io/badge/Status-Published-green.svg
+    :alt: Published Status
 
 .. image:: https://img.shields.io/badge/Topic-BDD%20%26%20TDD-blue.svg
     :alt: BDD & TDD Topic

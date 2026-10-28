@@ -1,3 +1,4 @@
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 .. _git_workflow:
 
 =======================================
@@ -6,7 +7,7 @@ Git Workflow with BDD & TDD
 
 :Author: Albert Mietus (with AI assistance)
 :Version: 1.0
-:Date: 2025-01-28
+:Date: 2026-09-30
 :Status: Draft
 
 .. note::
@@ -421,31 +422,31 @@ A good git history for a feature should read like a **narrative**:
 
     commit abc1234
     Author: Developer
-    Date:   2025-01-28
+    Date:   2026-09-30
     
         Remove xfail from LLM CLI tests - all passing
     
     commit def5678
     Author: Developer
-    Date:   2025-01-28
+    Date:   2026-09-30
     
         Integrate compute module into CLIs
     
     commit ghi9012
     Author: Developer
-    Date:   2025-01-28
+    Date:   2026-09-30
     
         Implement LLMCompute class to pass TDD tests
     
     commit jkl3456
     Author: Developer
-    Date:   2025-01-28
+    Date:   2026-09-30
     
         Add TDD tests for LLMCompute class (failing)
     
     commit mno7890
     Author: Developer
-    Date:   2025-01-28
+    Date:   2026-09-30
     
         Add BDD tests for LLM CLIs (xfail - compute missing)
 
@@ -498,4 +499,4 @@ See Also
 
 - :ref:`bdd_tdd_cycle` - The BDD & TDD development process
 - :ref:`bug_handling` - How to handle bugs in this workflow
-- :doc:`/AIblog/love_comma_example` - A concrete example
+- :doc:`2026-09-30_love_comma_example` - A concrete example

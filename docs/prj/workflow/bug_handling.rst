@@ -1,3 +1,4 @@
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 .. _bug_handling:
 
 ===================================
@@ -6,7 +7,7 @@ Bug Handling in BDD & TDD Workflow
 
 :Author: Albert Mietus (with AI assistance)
 :Version: 1.0
-:Date: 2025-01-28
+:Date: 2026-09-30
 :Status: Draft
 
 .. note::
@@ -547,4 +548,4 @@ See Also
 
 - :ref:`bdd_tdd_cycle` - The BDD & TDD development process
 - :ref:`git_workflow` - How to integrate with Git
-- :doc:`/AIblog/love_comma_example` - A concrete example of bug handling
+- :doc:`2026-09-30_love_comma_example` - A concrete example of bug handling

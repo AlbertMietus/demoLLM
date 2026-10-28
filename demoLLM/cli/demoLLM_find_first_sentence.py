@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 """
 CLI: Find and print the first valid sentence from input.
