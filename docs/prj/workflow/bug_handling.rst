@@ -6,7 +6,7 @@ Bug Handling in BDD & TDD Workflow
 
 :Author: Albert Mietus (with AI assistance)
 :Version: 1.0
-:Date: 2025-01-28
+:Date: 2026-09-30
 :Status: Draft
 
 .. note::

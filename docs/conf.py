@@ -1,4 +1,4 @@
-# (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+# (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 # Configuration file for the Sphinx documentation builder.
 import os
@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.abspath('..'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'DemoLLM'
-copyright = '2024, Albert Mietus'
+copyright = '2024, 2026, Albert Mietus'
 author = 'Albert Mietus'
 release = '0.1.0'
 
@@ -20,11 +20,23 @@ release = '0.1.0'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
+    'sphinx.ext.nappleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
-    'myst_parser'
+    'myst_parser',
+    'ablog'
 ]
+
+# Ablog configuration for blog posts
+blog_path = 'AIblog'
+blog_title = 'DemoLLM AI Blog'
+blog_description = 'Blog posts about AI, BDD, TDD, and software engineering'
+blog_default_author = 'AI Assistant (with Albert Mietus guidance)'
+blog_default_category = 'Software Engineering'
+blog_default_language = 'en'
+blog_post_date_format = '%Y-%m-%d'
+blog_archive_per_month = True
+blog_archive_per_year = True
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

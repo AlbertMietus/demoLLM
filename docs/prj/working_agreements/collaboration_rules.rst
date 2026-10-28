@@ -1,4 +1,4 @@
-.. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 Collaboration Rules
 ===================
@@ -70,11 +70,17 @@ Development Process
    - Use **Sphinx/rst format** for all documentation
    - Use **Google-style** docstrings for Python code
    - Include **examples** in docstrings where helpful
+   - **Blog posts must use ablog format** with ``.. post::`` directive for proper Sphinx blog integration
+   - Blog post filenames should follow pattern: ``<year>-<month>-<day>_<slug>.rst``
+   - **Never create plain directories for blog posts** - always use ablog directive
 
 4. **File Headers**
    - **Every file** must start with copyright header:
-     ``(C) Albert Mietus -- mostly made by codeAI=<model>``
+     ``(C) <year> Albert Mietus -- mostly made by codeAI=<model>``
    - AI must **include its model name and version** in the header
+   - **Year must be current year** (e.g., 2026) when file is created or significantly updated
+   - When updating a file, **add new year** to copyright (e.g., "2024, 2026") rather than replacing
+   - **Never use future years** or guess the year - always use the actual current year
 
 5. **Version Control**
    - Use **atomic commits** (one logical change per commit)
