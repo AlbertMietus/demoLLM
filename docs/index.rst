@@ -1,4 +1,4 @@
-.. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 DemoLLM Documentation
 =======================
@@ -19,7 +19,9 @@ and uses hardcoded weights for a handful of tokens.
    doel/index
    prj/index
    adr/index
-   AIblog/love_comma_example
+   AIblog/2026-09-30_love_comma_example
+   AIblog/2026-09-30_fixing_bugs_4_and_5
+   AIblog/2026-09-30_preventing_recurring_errors
    modules
 
 

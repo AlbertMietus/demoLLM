@@ -1,4 +1,4 @@
-.. (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+.. (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
 
 ADR 001: LLM Model Design
 ==========================
@@ -100,6 +100,6 @@ Alternatives Considered
    Prediction logic can be added in a separate class later.
 
 Related Decisions
-================
+=================
 - ADR 002: Tokenization Strategy (to be created)
 - ADR 003: Inference Engine Design (to be created)

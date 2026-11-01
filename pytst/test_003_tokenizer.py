@@ -1,3 +1,5 @@
+# (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5
+
 """
 TDD tests for the tokenizer function (test-003 series).
 

@@ -1,6 +1,6 @@
 # DemoLLM - Agent Guidelines
 
-<!-- (C) Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 -->
+<!-- (C) 2026 Albert Mietus -- mostly made by codeAI=mistral-medium-3-5 -->
 
 ## Purpose
 
@@ -225,7 +225,7 @@ demoLLM/
 ## ⚠️ Important Notes
 
 1. **All documentation is in English** (as per working agreements)
-2. **All files must have copyright header**: `(C) Albert Mietus -- mostly made by codeAI=<model>`
+2. **All files must have copyright header**: `(C) <year> Albert Mietus -- mostly made by codeAI=<model>`
 3. **All changes must be documented** in the appropriate location
 4. **Never assume** - if it's not in the documentation, ask for clarification
 5. **The RST files are the source of truth** - this AGENTS.md is a convenience pointer
