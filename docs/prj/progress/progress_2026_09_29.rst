@@ -19,6 +19,7 @@ Completed Tasks
    - Added create_demo_llm() factory function
    - Supports 5 tokens: EOS, I, YOU, LOVE, COMPUTERS
    - Configured weights for valid sentences:
+
      - "I love computers"
      - "You love computers"
      - "I love you"

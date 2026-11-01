@@ -316,6 +316,6 @@ And the commitment is:
 
 .. seealso::
 
-   - :ref:`collaboration_rules` - The rules I will follow
+   - :doc:`/prj/working_agreements/collaboration_rules` - The rules I will follow
    - :ref:`fixing_bugs_4_and_5` - The fixes I made
    - :ref:`bdd_tdd_cycle` - The process I will use

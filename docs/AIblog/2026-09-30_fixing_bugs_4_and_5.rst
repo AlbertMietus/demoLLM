@@ -181,7 +181,7 @@ References
 
 - GitHub Issue #4: What year is it?
 - GitHub Issue #5: Ablog - post
-- :ref:`collaboration_rules` - Updated working agreements
+- :doc:`/prj/working_agreements/collaboration_rules` - Updated working agreements
 - :ref:`love_comma_example` - The BDD-TDD case study blog post (now properly formatted)
 
 .. seealso::
